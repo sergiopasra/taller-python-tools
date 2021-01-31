@@ -27,10 +27,33 @@ cadena = 123
 
 Si el hecho de utilizar en alguna parte del programa una variable con el tipo incorrecto produce un error (por ejemplo, al calcular la raiz cuadrada de una cadena), este se da **al ejecutar el programa**.
 
+## Type hinting
+
+A partir de Python 3.5 se añadió la opción de añadir [*type hinting*](https://docs.python.org/3/library/typing.html) 
+(sugerencias de tipos) a la definición de las funciones y a las variables.
+Estas sugerencias ayudan al analizador el código y verificarlo, pero no 
+afectan a la ejecución. 
+
+
+```python
+def fact(n):
+    # factorial, sin tipos
+    if n == 0:
+        return 1
+    else:
+        return n * fact(n - 1)
+
+def fact(n: int) -> int:
+    # factorial, con tipos
+    if n == 0:
+        return 1
+    else:
+        return n * fact(n - 1)
+```
 
 ## Lenguaje multipropósito
 
-Python es un lenguaje de programación completo, con el que se puede programar demonios del sistema, aplicaciones gráficas, aplicaciones web, etc. Aquí nos vamos a centrar en su uso como herramienta de análisis de datos, en particular para astrofísica.
+Python es un lenguaje de programación completo, con el que se puede programar demonios del sistema, aplicaciones gráficas, aplicaciones web, etc. Aquí nos vamos a centrar en su uso como herramienta de trabajo para el análisis básico de datos.
 
 
 ## Intérprete de comandos
@@ -42,11 +65,11 @@ Python puede ejecutar comandos escritos en un fichero (un *programa* de Python) 
 
 Python viene instalado en la mayor parte de las distribuciones Linux y en Mac. También puede instalarse en Windows.
 
-**Ojo:** Es importante asegurarnos de que tenemos una versión moderna de Python. Debería ser por lo menos 3.5.
+**Ojo:** Es importante asegurarnos de que tenemos una versión moderna de Python. Debería ser por lo menos 3.6.
 
 ```
-$ python
-[GCC 9.3.1 20200408 (Red Hat 9.3.1-2)] on linux
+Python 3.9.1 (default, Jan 20 2021, 00:00:00)
+[GCC 10.2.1 20201125 (Red Hat 10.2.1-9)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 
@@ -59,7 +82,23 @@ Existen multitud de recursos para aprender Python. Como la lista sería intermin
 
 ### Paquetes
 
-Python viene de serie con un [buen número de módulos](https://docs.python.org/3/library/), pero existen una gran cantidad de extensiones que añaden funcionalidades de topo tipo. Estas extensions se denominan **paquetes**. Por ejemplo:
+Python viene de serie con un [buen número de módulos](https://docs.python.org/3/library/). Algunos módulos interesantes serían:
+
+ * re: expresiones regulares
+ * readline: interfaz con la biblioteca GNU readline
+ * datetime: tiempo y fechas
+ * math: funciones matemáticas básicas
+ * pathlib: manipulación de nombres de ficheros
+ * shutil: manipulación de ficheros
+ * pickle: persistencia
+ * sqlite3: acceso a bases de datos SQLite
+ * zlib, zipfile, tarfile: compresión
+ * logging
+ * multiprocessing, threading: concurrencia
+
+
+
+Existen además una gran cantidad de extensiones que añaden funcionalidades de todo tipo. Estas extensions se denominan **paquetes**. Por ejemplo:
 
 
  * numpy: array multidimensionales
