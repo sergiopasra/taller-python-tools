@@ -1,0 +1,24 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Taller Python
+author: Sergio Pascual
+
+only_build_toc_files: true
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: auto
+
+parse:
+  myst_extended_syntax: true
+
+repository:
+  url: https://github.com/sergiopasra/taller-python-tools
+  path_to_book: ptools
+  branch: main
+
+launch_buttons:
+  binderhub_url: "https://mybinder.org"  
+

@@ -1,0 +1,16 @@
+- file: index
+
+- part: Get started
+  chapters:
+  - file: chap1/sec1
+  - file: chap1/sec2
+
+- part: Other
+  chapters:
+  - file: sec2
+    sections:
+      - file: sec3
+      - file: sec4
+      - file: sec5
+
+
