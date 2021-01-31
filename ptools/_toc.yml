@@ -1,16 +1,22 @@
 - file: index
 
-- part: Get started
+- part: Python y Jupyter
   chapters:
   - file: chap1/sec1
   - file: chap1/sec2
 
-- part: Other
+- part: Numpy
   chapters:
-  - file: sec2
-    sections:
-      - file: sec3
-      - file: sec4
-      - file: sec5
+  - file: part2
 
+- part: Matplotlib y plotly
+  chapters:
+  - file: part3
 
+- part: Pandas
+  chapters:
+  - file: part4
+
+- part: Uso de unidades
+  chapters:
+  - file: part5
