@@ -1,13 +1,14 @@
-## Jupyter
+# Jupyter
 
 Jupyter es un entorno de tipo **cuaderno**, en el que se puede mezclar texto con elementos multimedia con código ejecutable. Jupyter permite ejecutar código en Python pero también en R, Julia y otro lenguajes. En Jupyter el elemento mínimo es la *celda*. Una celda puede contener texto (como esta) o código ejecutable.
 
-### Instalación
+## Instalación
 
-Para la instalación podemos visitar http://www.jupyter.org
+Para la instalación podemos visitar <http://www.jupyter.org>
 
 En la sección **The Jupyter Notebook**, tenemos dos opciones:
- **Try in in your browser** e **Install the Notebook**
+ [**Try in in your browser**](https://jupyter.org/try) 
+ e [**Install the Notebook**](https://jupyter.org/install.html)
 
 De nuevo tenemos opciones para instalar varios programas. 
 Buscamos la sección **Getting started with the classic Jupyter Notebook**,
