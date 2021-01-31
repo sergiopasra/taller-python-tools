@@ -4,3 +4,6 @@ ipywidgets
 Cython
 scipy
 pandas
+astropy
+# jupyter-book
+# sphinxcontrib-bibtex<2.0.0
