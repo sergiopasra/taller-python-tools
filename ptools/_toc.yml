@@ -4,6 +4,8 @@
   chapters:
   - file: chap1/sec1
   - file: chap1/sec2
+  - file: chap1/magics
+  - file: chap1/magicmd
 
 - part: Numpy
   chapters:
