@@ -45,6 +45,8 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -107,8 +109,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="chap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="chap1/magics.html">
    Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -224,6 +241,65 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indices-y-seleccion">
+   Índices y selección
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-sobre-los-datos">
+   Operaciones sobre los datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indices-jerarquicos">
+   Índices jerárquicos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-datos-no-presentes">
+   Manejo de datos no presentes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinacion-de-datos">
+   Combinación de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agrupameniento-y-agregacion">
+   Agrupameniento y agregación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tablas-dinamicas">
+   Tablas dinámicas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-temporales">
+   Series temporales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-mas-eficientes-con-eval">
+   Operaciones más eficientes con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     eval
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -233,6 +309,33 @@
                 
   <div class="section" id="pandas">
 <h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="indices-y-seleccion">
+<h2>Índices y selección<a class="headerlink" href="#indices-y-seleccion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operaciones-sobre-los-datos">
+<h2>Operaciones sobre los datos<a class="headerlink" href="#operaciones-sobre-los-datos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="indices-jerarquicos">
+<h2>Índices jerárquicos<a class="headerlink" href="#indices-jerarquicos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="manejo-de-datos-no-presentes">
+<h2>Manejo de datos no presentes<a class="headerlink" href="#manejo-de-datos-no-presentes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="combinacion-de-datos">
+<h2>Combinación de datos<a class="headerlink" href="#combinacion-de-datos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="agrupameniento-y-agregacion">
+<h2>Agrupameniento y agregación<a class="headerlink" href="#agrupameniento-y-agregacion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tablas-dinamicas">
+<h2>Tablas dinámicas<a class="headerlink" href="#tablas-dinamicas" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="series-temporales">
+<h2>Series temporales<a class="headerlink" href="#series-temporales" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operaciones-mas-eficientes-con-eval">
+<h2>Operaciones más eficientes con <code class="docutils literal notranslate"><span class="pre">eval</span></code><a class="headerlink" href="#operaciones-mas-eficientes-con-eval" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

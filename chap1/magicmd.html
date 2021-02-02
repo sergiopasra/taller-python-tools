@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Taller Python</title>
+    <title>Magic commands &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -45,6 +45,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -95,7 +97,7 @@
   Python y Jupyter
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="sec1.html">
    Python
@@ -107,8 +109,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="magics.html">
    Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -241,15 +258,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -257,7 +265,10 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="magic-commands">
+<h1>Magic commands<a class="headerlink" href="#magic-commands" title="Permalink to this headline">¶</a></h1>
+<p>Podemos listar los momandos disponibles con:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
 </pre></div>
@@ -275,6 +286,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 </div>
 </div>
+<p>Algunos comandos son interactivos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">quickref</span>
@@ -282,6 +294,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 </div>
 </div>
+<p>Y podemos cargar la ayuda de un comando añadiendo <code class="docutils literal notranslate"><span class="pre">?</span></code> al final de su nombre</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">macro</span><span class="o">?</span>
@@ -300,10 +313,10 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;CONDA&#39;: &#39;/usr/share/miniconda&#39;,
  &#39;GITHUB_WORKSPACE&#39;: &#39;/home/runner/work/taller-python-tools/taller-python-tools&#39;,
  &#39;JAVA_HOME_11_X64&#39;: &#39;/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64&#39;,
- &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_b3748530-26ca-4f30-bb81-1f96fe9c3d1e&#39;,
+ &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_f7a849a3-0218-4692-8a14-3fed99048deb&#39;,
  &#39;GITHUB_ACTION&#39;: &#39;run2&#39;,
  &#39;JAVA_HOME&#39;: &#39;/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64&#39;,
- &#39;GITHUB_RUN_NUMBER&#39;: &#39;3&#39;,
+ &#39;GITHUB_RUN_NUMBER&#39;: &#39;4&#39;,
  &#39;GRADLE_HOME&#39;: &#39;/usr/share/gradle&#39;,
  &#39;DOTNET_SKIP_FIRST_TIME_EXPERIENCE&#39;: &#39;1&#39;,
  &#39;ANT_HOME&#39;: &#39;/usr/share/ant&#39;,
@@ -315,7 +328,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;PIPX_BIN_DIR&#39;: &#39;/opt/pipx_bin&#39;,
  &#39;DEPLOYMENT_BASEPATH&#39;: &#39;/opt/runner&#39;,
  &#39;GITHUB_ACTIONS&#39;: &#39;true&#39;,
- &#39;GITHUB_SHA&#39;: &#39;a1d1a3a028437971a247483682b2e13eb398d274&#39;,
+ &#39;GITHUB_SHA&#39;: &#39;a5f71371b87dcd71ade0279ff8c7cffef98f4c47&#39;,
  &#39;POWERSHELL_DISTRIBUTION_CHANNEL&#39;: &#39;GitHub-Actions-ubuntu20&#39;,
  &#39;DOTNET_MULTILEVEL_LOOKUP&#39;: &#39;0&#39;,
  &#39;GITHUB_REF&#39;: &#39;refs/heads/main&#39;,
@@ -323,14 +336,14 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;HOME&#39;: &#39;/home/runner&#39;,
  &#39;GITHUB_API_URL&#39;: &#39;https://api.github.com&#39;,
  &#39;LANG&#39;: &#39;C.UTF-8&#39;,
- &#39;RUNNER_TRACKING_ID&#39;: &#39;github_a7300c2e-f7c3-47c1-ae94-1b445bfb9719&#39;,
+ &#39;RUNNER_TRACKING_ID&#39;: &#39;github_771f9429-a748-40df-bbcc-44932f8147a0&#39;,
  &#39;RUNNER_TEMP&#39;: &#39;/home/runner/work/_temp&#39;,
  &#39;M2_HOME&#39;: &#39;/usr/share/apache-maven-3.6.3&#39;,
- &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_b3748530-26ca-4f30-bb81-1f96fe9c3d1e&#39;,
+ &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_f7a849a3-0218-4692-8a14-3fed99048deb&#39;,
  &#39;GITHUB_EVENT_PATH&#39;: &#39;/home/runner/work/_temp/_github_workflow/event.json&#39;,
- &#39;INVOCATION_ID&#39;: &#39;1191a97cd06d48cd8da544f530717a39&#39;,
+ &#39;INVOCATION_ID&#39;: &#39;c1720ddb8a3046398eaf9dd89160a4a4&#39;,
  &#39;GITHUB_EVENT_NAME&#39;: &#39;push&#39;,
- &#39;GITHUB_RUN_ID&#39;: &#39;525644878&#39;,
+ &#39;GITHUB_RUN_ID&#39;: &#39;530772637&#39;,
  &#39;GOROOT&#39;: &#39;/opt/hostedtoolcache/go/1.14.14/x64&#39;,
  &#39;ANDROID_NDK_HOME&#39;: &#39;/usr/local/lib/android/sdk/ndk-bundle&#39;,
  &#39;HOMEBREW_NO_AUTO_UPDATE&#39;: &#39;1&#39;,
@@ -348,11 +361,11 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;SHLVL&#39;: &#39;1&#39;,
  &#39;ANDROID_SDK_ROOT&#39;: &#39;/usr/local/lib/android/sdk&#39;,
  &#39;VCPKG_INSTALLATION_ROOT&#39;: &#39;/usr/local/share/vcpkg&#39;,
- &#39;RUNNER_TOOL_CACHE&#39;: &#39;/opt/hostedtoolcache&#39;,
  &#39;HOMEBREW_REPOSITORY&#39;: &#39;&quot;/home/linuxbrew/.linuxbrew/Homebrew&quot;&#39;,
- &#39;ImageVersion&#39;: &#39;20210123.1&#39;,
+ &#39;RUNNER_TOOL_CACHE&#39;: &#39;/opt/hostedtoolcache&#39;,
+ &#39;ImageVersion&#39;: &#39;20210131.1&#39;,
  &#39;DOTNET_NOLOGO&#39;: &#39;1&#39;,
- &#39;GRAALVM_11_ROOT&#39;: &#39;/usr/local/graalvm/graalvm-ce-java11-20.3.1&#39;,
+ &#39;GRAALVM_11_ROOT&#39;: &#39;/usr/local/graalvm/graalvm-ce-java11-21.0.0&#39;,
  &#39;GITHUB_JOB&#39;: &#39;deploy-book&#39;,
  &#39;AZURE_EXTENSION_DIR&#39;: &#39;/opt/az/azcliextensions&#39;,
  &#39;PERFLOG_LOCATION_SETTING&#39;: &#39;RUNNER_PERFLOG&#39;,
@@ -360,7 +373,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;CHROME_BIN&#39;: &#39;/usr/bin/google-chrome&#39;,
  &#39;ANDROID_NDK_ROOT&#39;: &#39;/usr/local/lib/android/sdk/ndk-bundle&#39;,
  &#39;GITHUB_RETENTION_DAYS&#39;: &#39;90&#39;,
- &#39;JOURNAL_STREAM&#39;: &#39;9:20779&#39;,
+ &#39;JOURNAL_STREAM&#39;: &#39;9:19380&#39;,
  &#39;RUNNER_WORKSPACE&#39;: &#39;/home/runner/work/taller-python-tools&#39;,
  &#39;LEIN_HOME&#39;: &#39;/usr/local/lib/lein&#39;,
  &#39;LEIN_JAR&#39;: &#39;/usr/local/lib/lein/self-installs/leiningen-2.9.5-standalone.jar&#39;,
@@ -379,7 +392,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;GOROOT_1_15_X64&#39;: &#39;/opt/hostedtoolcache/go/1.15.7/x64&#39;,
  &#39;AGENT_TOOLSDIRECTORY&#39;: &#39;/opt/hostedtoolcache&#39;,
  &#39;_&#39;: &#39;/opt/hostedtoolcache/Python/3.8.7/x64/bin/jupyter-book&#39;,
- &#39;JPY_PARENT_PID&#39;: &#39;1583&#39;,
+ &#39;JPY_PARENT_PID&#39;: &#39;1559&#39;,
  &#39;TERM&#39;: &#39;xterm-color&#39;,
  &#39;CLICOLOR&#39;: &#39;1&#39;,
  &#39;PAGER&#39;: &#39;cat&#39;,
@@ -389,6 +402,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">%run</span></code> permite ejecutar otros cuadernos. Las variables pasan a estar definidas dentro del cuaderno presente</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> Fibonacci.ipynb
@@ -396,52 +410,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span>             <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">703</span>             <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/IPython/utils/path.py</span> in <span class="ni">get_py_filename</span><span class="nt">(name, force_win32)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">109</span>         <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;File `</span><span class="si">%r</span><span class="s1">` not found.&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span> 
-
-<span class="ne">OSError</span>: File `&#39;Fibonacci.ipynb.py&#39;` not found.
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">e7d653ce0a42</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;Fibonacci.ipynb&#39;</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2325</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2326</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2327</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2328</span>             <span class="k">return</span> <span class="n">result</span>
-<span class="g g-Whitespace">   </span><span class="mi">2329</span> 
-
-<span class="nn">&lt;decorator-gen-52&gt;</span> in <span class="ni">run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
-<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span> 
-<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">712</span>             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span>                 <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">714</span>             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span>             <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
-
-<span class="ne">Exception</span>: File `&#39;Fibonacci.ipynb.py&#39;` not found.
-</pre></div>
-</div>
+<img alt="../_images/magicmd_9_0.png" src="../_images/magicmd_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -450,10 +419,21 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.fib(n: int)&gt;
+</pre></div>
 </div>
+</div>
+</div>
+<p>Podemos ver funciones y variables definidas con <code class="docutils literal notranslate"><span class="pre">%who</span></code> y <code class="docutils literal notranslate"><span class="pre">%whos</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fib	 fibs	 ns	 plt	 
 </pre></div>
 </div>
 </div>
@@ -464,8 +444,18 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
+--------------------------------
+fib        function    &lt;function fib at 0x7f7805f5e820&gt;
+fibs       list        n=10
+ns         range       range(0, 10)
+plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
+</pre></div>
 </div>
-<p>Vamos a usar %timeit para comparar la velocidad de ejecuión de la versión simple de <code class="docutils literal notranslate"><span class="pre">fib</span></code> con la fórmula de Binet</p>
+</div>
+</div>
+<p>Vamos a usar <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> para comparar la velocidad de ejecuión de la versión simple de <code class="docutils literal notranslate"><span class="pre">fib</span></code> con la fórmula de Binet</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -486,10 +476,20 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>471 ns ± 1.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> fib(20)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.19 ms ± 28.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -498,6 +498,12 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="o">!</span>ls
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fibonacci.ipynb&#39;, &#39;ide.md&#39;, &#39;magicmd.ipynb&#39;, &#39;magics.md&#39;, &#39;sec1.md&#39;, &#39;sec2.md&#39;]
 </pre></div>
 </div>
 </div>
@@ -508,12 +514,32 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fibonacci.ipynb&#39;,
+ &#39;ide.md&#39;,
+ &#39;magicmd.ipynb&#39;,
+ &#39;magics.md&#39;,
+ &#39;sec1.md&#39;,
+ &#39;sec2.md&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 
-echo $DISPLAY
+for nm in *.md; do
+    echo $nm
+done
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ide.md
+magics.md
+sec1.md
+sec2.md
 </pre></div>
 </div>
 </div>
@@ -525,6 +551,14 @@ echo $DISPLAY
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install Cython
 <span class="c1"># %conda install Cython</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Cython in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (0.29.21)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
@@ -540,12 +574,17 @@ echo $DISPLAY
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+
+import math
+
+
+cdef double SQRT5 = math.sqrt(5)
+cdef double PHI = (1 + SQRT5) / 2
+
 def fibcy(int n):
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    return fibcy(n-1) + fibcy(n-2)
+    cdef int res
+    res = round((PHI**n - (1-PHI)**n)/SQRT5)
+    return res
 </pre></div>
 </div>
 </div>
@@ -556,10 +595,85 @@ def fibcy(int n):
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>253 ns ± 8.79 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install rpy2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rpy2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading rpy2-3.4.2.tar.gz (186 kB)
+?25l
+     |█▊                              | 10 kB 34.1 MB/s eta 0:00:01
+     |███▌                            | 20 kB 32.2 MB/s eta 0:00:01
+     |█████▎                          | 30 kB 12.8 MB/s eta 0:00:01
+     |███████                         | 40 kB 6.7 MB/s eta 0:00:01
+     |████████▉                       | 51 kB 8.2 MB/s eta 0:00:01
+     |██████████▋                     | 61 kB 9.6 MB/s eta 0:00:01
+     |████████████▎                   | 71 kB 9.5 MB/s eta 0:00:01
+     |██████████████                  | 81 kB 9.5 MB/s eta 0:00:01
+     |███████████████▉                | 92 kB 9.2 MB/s eta 0:00:01
+     |█████████████████▋              | 102 kB 7.8 MB/s eta 0:00:01
+     |███████████████████▍            | 112 kB 7.8 MB/s eta 0:00:01
+     |█████████████████████▏          | 122 kB 7.8 MB/s eta 0:00:01
+     |███████████████████████         | 133 kB 7.8 MB/s eta 0:00:01
+     |████████████████████████▋       | 143 kB 7.8 MB/s eta 0:00:01
+     |██████████████████████████▍     | 153 kB 7.8 MB/s eta 0:00:01
+     |████████████████████████████▏   | 163 kB 7.8 MB/s eta 0:00:01
+     |██████████████████████████████  | 174 kB 7.8 MB/s eta 0:00:01
+     |███████████████████████████████▊| 184 kB 7.8 MB/s eta 0:00:01
+     |████████████████████████████████| 186 kB 7.8 MB/s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied: cffi&gt;=1.10.0 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (1.14.4)
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (2.11.3)
+Requirement already satisfied: pytz in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (2021.1)
+Collecting tzlocal
+  Downloading tzlocal-2.1-py2.py3-none-any.whl (16 kB)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from cffi&gt;=1.10.0-&gt;rpy2) (2.20)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=0.23 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from jinja2-&gt;rpy2) (1.1.1)
+Building wheels for collected packages: rpy2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for rpy2 (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for rpy2: filename=rpy2-3.4.2-cp38-cp38-linux_x86_64.whl size=338227 sha256=81785f310297a8af3eaecf1ca46d3727bcb312b7e99c2901706bd96185f293aa
+  Stored in directory: /home/runner/.cache/pip/wheels/1e/71/a3/7811e97007d6189777c751352c06f3de1a9997db9526cdabe0
+Successfully built rpy2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: tzlocal, rpy2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed rpy2-3.4.2 tzlocal-2.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 </div>
@@ -589,6 +703,18 @@ fibr &lt;- function(n) {
 
 fibr(20)
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4181
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

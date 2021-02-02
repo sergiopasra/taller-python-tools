@@ -45,6 +45,8 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,7 +57,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Matplotlib" href="part3.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="chap1/magicmd.html" />
+    <link rel="prev" title="Magic commands" href="chap1/magicmd.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -107,8 +109,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="chap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="chap1/magics.html">
    Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -224,6 +241,47 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos">
+   Tipos de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-universales">
+   Funciones universales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broadcasting">
+   <em>
+    Broadcasting
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparaciones-y-mascaras-boleanas">
+   Comparaciones y máscaras boleanas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-de-indices">
+   Uso de índices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arrays-estructurados">
+   Arrays estructurados
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -233,6 +291,24 @@
                 
   <div class="section" id="numpy">
 <h1>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tipos-de-datos">
+<h2>Tipos de datos<a class="headerlink" href="#tipos-de-datos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="funciones-universales">
+<h2>Funciones universales<a class="headerlink" href="#funciones-universales" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="broadcasting">
+<h2><em>Broadcasting</em><a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="comparaciones-y-mascaras-boleanas">
+<h2>Comparaciones y máscaras boleanas<a class="headerlink" href="#comparaciones-y-mascaras-boleanas" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="uso-de-indices">
+<h2>Uso de índices<a class="headerlink" href="#uso-de-indices" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="arrays-estructurados">
+<h2>Arrays estructurados<a class="headerlink" href="#arrays-estructurados" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -263,7 +339,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="chap1/magicmd.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="chap1/magicmd.html" title="previous page">Magic commands</a>
     <a class='right-next' id="next-link" href="part3.html" title="next page">Matplotlib</a>
 
     </div>

@@ -45,6 +45,8 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -107,8 +109,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="chap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="chap1/magics.html">
    Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -224,6 +241,72 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib-y-seaborn">
+   Matplotlib y seaborn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficos-de-lineas-y-dispersion">
+     Gráficos de líneas y dispersión
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errores">
+     Errores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contornos">
+     Contornos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histogramas">
+     Histogramas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leyenda-etiquetas-y-titulos">
+     Leyenda, etiquetas y títulos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subgraficos">
+     Subgráficos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hojas-de-estilo">
+     Hojas de estilo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizacion-3d">
+     Visualización 3D
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformaciones-geometricas">
+     Transformaciones geométricas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotly">
+   Plotly
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -233,6 +316,39 @@
                 
   <div class="section" id="matplotlib">
 <h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="matplotlib-y-seaborn">
+<h2>Matplotlib y seaborn<a class="headerlink" href="#matplotlib-y-seaborn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="graficos-de-lineas-y-dispersion">
+<h3>Gráficos de líneas y dispersión<a class="headerlink" href="#graficos-de-lineas-y-dispersion" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="errores">
+<h3>Errores<a class="headerlink" href="#errores" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="contornos">
+<h3>Contornos<a class="headerlink" href="#contornos" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="histogramas">
+<h3>Histogramas<a class="headerlink" href="#histogramas" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="leyenda-etiquetas-y-titulos">
+<h3>Leyenda, etiquetas y títulos<a class="headerlink" href="#leyenda-etiquetas-y-titulos" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="subgraficos">
+<h3>Subgráficos<a class="headerlink" href="#subgraficos" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="hojas-de-estilo">
+<h3>Hojas de estilo<a class="headerlink" href="#hojas-de-estilo" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="visualizacion-3d">
+<h3>Visualización 3D<a class="headerlink" href="#visualizacion-3d" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="transformaciones-geometricas">
+<h3>Transformaciones geométricas<a class="headerlink" href="#transformaciones-geometricas" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="plotly">
+<h2>Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jupyter &#8212; Taller Python</title>
+    <title>Números de Fibonnacci &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Entornos de desarrollo" href="ide.html" />
-    <link rel="prev" title="Python" href="sec1.html" />
+    <link rel="next" title="Comándos mágicos" href="magics.html" />
+    <link rel="prev" title="Entornos de desarrollo" href="ide.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -103,8 +103,8 @@
    Python
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sec2.html">
    Jupyter
   </a>
  </li>
@@ -113,8 +113,8 @@
    Entornos de desarrollo
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Fibonacci.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Números de Fibonnacci
   </a>
  </li>
@@ -216,9 +216,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chap1/sec2.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/chap1/Fibonacci.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -236,36 +236,27 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/chap1/Fibonacci.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instalacion">
-   Instalación
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pip">
-     Pip
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conda">
-     Conda
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-        </nav>
         
     </div>
 </div>
@@ -274,72 +265,67 @@
         
               <div>
                 
-  <div class="section" id="jupyter">
-<h1>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h1>
-<p>Jupyter es un entorno de tipo <strong>cuaderno</strong>, en el que se puede mezclar texto con elementos multimedia con código ejecutable. Jupyter permite ejecutar código en Python pero también en R, Julia y otro lenguajes. En Jupyter el elemento mínimo es la <em>celda</em>. Una celda puede contener texto (como esta) o código ejecutable.</p>
-<div class="section" id="instalacion">
-<h2>Instalación<a class="headerlink" href="#instalacion" title="Permalink to this headline">¶</a></h2>
-<p>Para la instalación podemos visitar <a class="reference external" href="http://www.jupyter.org">http://www.jupyter.org</a></p>
-<p>En la sección <strong>The Jupyter Notebook</strong>, tenemos dos opciones:
-<a class="reference external" href="https://jupyter.org/try"><strong>Try in in your browser</strong></a>
-e <a class="reference external" href="https://jupyter.org/install.html"><strong>Install the Notebook</strong></a></p>
-<p>De nuevo tenemos opciones para instalar varios programas.
-Buscamos la sección <strong>Getting started with the classic Jupyter Notebook</strong>,
-donde tenemos instrucciones para instalar utilizando <em>conda</em> o <em>pip</em>.</p>
-<p>Jupyter es una aplicación Python, así que require un entorno de Python.
-Tanto en Linux como en Mac, Python viene instalado por defecto. Sin embargo,
-es preferible trabajar en un entorno aislado del Python del sistema para
-evitar problemas de compatibilidad.</p>
-<div class="section" id="pip">
-<h3>Pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
-<p>El primer paso es crear un <em>entorno virtual</em>. De esa manera usaremos un Python aislado del Python del sistema, donde podremos instalar y desintalar paquetes sin permisos de administrador.</p>
-<p>En una terminal, escribimos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv taller
-</pre></div>
-</div>
-<p>Este comando nos creará un directorio <code class="docutils literal notranslate"><span class="pre">taller</span></code> con toda la estructura
-de directorios de Python. A continuación hay que activar el entorno, lo
-que hará que, en esa terminal en particular, el comando <code class="docutils literal notranslate"><span class="pre">python</span></code> invoque
-el ejecutable en <code class="docutils literal notranslate"><span class="pre">taller/bin/python</span></code>.</p>
-<p>La activación se realiza con:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source taller/bin/activate
-</pre></div>
-</div>
-<p>A continuación , el <em>prompt</em> cambia para indicar que estamos dentro del
-entorno:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $
-</pre></div>
-</div>
-<p>Para salir del entorno, basta escribir <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> (o cerrar la terminal).</p>
-<p>La instalación de Jupyter es simplemente:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ pip install notebook
-</pre></div>
-</div>
-<p>para ejecutar el cuaderno, en la terminal podemos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ jupyter notebook
+  <div class="section" id="numeros-de-fibonnacci">
+<h1>Números de Fibonnacci<a class="headerlink" href="#numeros-de-fibonnacci" title="Permalink to this headline">¶</a></h1>
+<p>Los números de Fibonnacci siguen la conocida recurrencia:</p>
+<div class="math notranslate nohighlight">
+\[
+F_n = F_{n-1} + F_{n-2}
+\]</div>
+<p>Empezando con 0, 1 obtenemos:</p>
+<div class="math notranslate nohighlight">
+\[
+0, 1, 1, 2, 3, 5, 8, \ldots
+\]</div>
+<p>Esta sucesión tiene algunas propiedades curiosas:</p>
+<ul class="simple">
+<li><p>El MCD de dos números de Fibonacci es otro número de Fibonacci: <span class="math notranslate nohighlight">\(\mathrm{mcd}(F_n, F_m) = F_{\mathrm{mcd}(n, m)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F^2_{n+1} + F^2_{n} = F_{2n+1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_n = \frac{F_{n-2} + F_{n+1}}{2}\)</span></p></li>
+</ul>
+<p><strong>Leonardo de Pisa</strong>, conocido como <strong>Fibonacci</strong> (<em>filius Bonacci</em>) fue un matemático italiano del siglo XII, originario de Pisa.</p>
+<p><a title="Taty2007 / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:Leonardo_Fibonacci.JPG"><img width="256" alt="Leonardo Fibonacci" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Leonardo_Fibonacci.JPG/256px-Leonardo_Fibonacci.JPG"></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="conda">
-<h3>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h3>
-<p>La instalación de conda está detallada en
-https://docs.anaconda.com/anaconda/install/</p>
-<p>Una vez instalado conda, creamos un entorno con:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name taller
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fibonacci number n</span>
+<span class="sd">    </span>
+<span class="sd">    Naive recursive inplementation of Fibonacci number n</span>
+<span class="sd">    Do not use for large numbers.</span>
+<span class="sd">    </span>
+<span class="sd">    First 7 terms of the series:</span>
+<span class="sd">    [0,1,1,2,3,5,8]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Activamos el entorno con:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate taller
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fibs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">fibs</span><span class="p">,</span> <span class="s1">&#39;r*-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>E instalamos con:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ conda install -c conda-forge notebook
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7feb5636c640&gt;]
 </pre></div>
 </div>
-<p>Para ejecutar jupyter escibir en una consola:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ jupyter notebook
-</pre></div>
-</div>
+<img alt="../_images/Fibonacci_3_1.png" src="../_images/Fibonacci_3_1.png" />
 </div>
 </div>
 </div>
@@ -372,8 +358,8 @@ https://docs.anaconda.com/anaconda/install/</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="sec1.html" title="previous page">Python</a>
-    <a class='right-next' id="next-link" href="ide.html" title="next page">Entornos de desarrollo</a>
+    <a class='left-prev' id="prev-link" href="ide.html" title="previous page">Entornos de desarrollo</a>
+    <a class='right-next' id="next-link" href="magics.html" title="next page">Comándos mágicos</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
