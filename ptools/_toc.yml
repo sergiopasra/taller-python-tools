@@ -11,7 +11,13 @@
 
 - part: Numpy
   chapters:
-  - file: part2
+  - file: chap2/index
+  - file: chap2/datos
+  - file: chap2/ufunc
+  - file: chap2/broadcast
+  - file: chap2/mask
+  - file: chap2/indexing
+  - file: chap2/structured
 
 - part: Matplotlib y plotly
   chapters:
