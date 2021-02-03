@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numpy" href="../part2.html" />
+    <link rel="next" title="Numpy" href="../chap2/index.html" />
     <link rel="prev" title="Comándos mágicos" href="magics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -136,8 +136,40 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../part2.html">
+  <a class="reference internal" href="../chap2/index.html">
    Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/datos.html">
+   Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/ufunc.html">
+   Funciones universales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/broadcast.html">
+   <em>
+    Broadcasting
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/mask.html">
+   Comparaciones y máscaras boleanas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/indexing.html">
+   Uso de índices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap2/structured.html">
+   Arrays estructurados
   </a>
  </li>
 </ul>
@@ -313,10 +345,10 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;CONDA&#39;: &#39;/usr/share/miniconda&#39;,
  &#39;GITHUB_WORKSPACE&#39;: &#39;/home/runner/work/taller-python-tools/taller-python-tools&#39;,
  &#39;JAVA_HOME_11_X64&#39;: &#39;/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64&#39;,
- &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_f7a849a3-0218-4692-8a14-3fed99048deb&#39;,
+ &#39;GITHUB_PATH&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/add_path_585009e0-8829-492d-bcbd-f864051f6039&#39;,
  &#39;GITHUB_ACTION&#39;: &#39;run2&#39;,
  &#39;JAVA_HOME&#39;: &#39;/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64&#39;,
- &#39;GITHUB_RUN_NUMBER&#39;: &#39;4&#39;,
+ &#39;GITHUB_RUN_NUMBER&#39;: &#39;5&#39;,
  &#39;GRADLE_HOME&#39;: &#39;/usr/share/gradle&#39;,
  &#39;DOTNET_SKIP_FIRST_TIME_EXPERIENCE&#39;: &#39;1&#39;,
  &#39;ANT_HOME&#39;: &#39;/usr/share/ant&#39;,
@@ -328,7 +360,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;PIPX_BIN_DIR&#39;: &#39;/opt/pipx_bin&#39;,
  &#39;DEPLOYMENT_BASEPATH&#39;: &#39;/opt/runner&#39;,
  &#39;GITHUB_ACTIONS&#39;: &#39;true&#39;,
- &#39;GITHUB_SHA&#39;: &#39;a5f71371b87dcd71ade0279ff8c7cffef98f4c47&#39;,
+ &#39;GITHUB_SHA&#39;: &#39;8b1ae9cc367eb972eab6a90988fafb73e3b7f46f&#39;,
  &#39;POWERSHELL_DISTRIBUTION_CHANNEL&#39;: &#39;GitHub-Actions-ubuntu20&#39;,
  &#39;DOTNET_MULTILEVEL_LOOKUP&#39;: &#39;0&#39;,
  &#39;GITHUB_REF&#39;: &#39;refs/heads/main&#39;,
@@ -336,14 +368,14 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;HOME&#39;: &#39;/home/runner&#39;,
  &#39;GITHUB_API_URL&#39;: &#39;https://api.github.com&#39;,
  &#39;LANG&#39;: &#39;C.UTF-8&#39;,
- &#39;RUNNER_TRACKING_ID&#39;: &#39;github_771f9429-a748-40df-bbcc-44932f8147a0&#39;,
+ &#39;RUNNER_TRACKING_ID&#39;: &#39;github_3844e556-39d3-4658-bdf9-79cafe1677db&#39;,
  &#39;RUNNER_TEMP&#39;: &#39;/home/runner/work/_temp&#39;,
  &#39;M2_HOME&#39;: &#39;/usr/share/apache-maven-3.6.3&#39;,
- &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_f7a849a3-0218-4692-8a14-3fed99048deb&#39;,
+ &#39;GITHUB_ENV&#39;: &#39;/home/runner/work/_temp/_runner_file_commands/set_env_585009e0-8829-492d-bcbd-f864051f6039&#39;,
  &#39;GITHUB_EVENT_PATH&#39;: &#39;/home/runner/work/_temp/_github_workflow/event.json&#39;,
- &#39;INVOCATION_ID&#39;: &#39;c1720ddb8a3046398eaf9dd89160a4a4&#39;,
+ &#39;INVOCATION_ID&#39;: &#39;65a744ace2de4b908a48f1d65166f51b&#39;,
  &#39;GITHUB_EVENT_NAME&#39;: &#39;push&#39;,
- &#39;GITHUB_RUN_ID&#39;: &#39;530772637&#39;,
+ &#39;GITHUB_RUN_ID&#39;: &#39;532395917&#39;,
  &#39;GOROOT&#39;: &#39;/opt/hostedtoolcache/go/1.14.14/x64&#39;,
  &#39;ANDROID_NDK_HOME&#39;: &#39;/usr/local/lib/android/sdk/ndk-bundle&#39;,
  &#39;HOMEBREW_NO_AUTO_UPDATE&#39;: &#39;1&#39;,
@@ -361,8 +393,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;SHLVL&#39;: &#39;1&#39;,
  &#39;ANDROID_SDK_ROOT&#39;: &#39;/usr/local/lib/android/sdk&#39;,
  &#39;VCPKG_INSTALLATION_ROOT&#39;: &#39;/usr/local/share/vcpkg&#39;,
- &#39;HOMEBREW_REPOSITORY&#39;: &#39;&quot;/home/linuxbrew/.linuxbrew/Homebrew&quot;&#39;,
  &#39;RUNNER_TOOL_CACHE&#39;: &#39;/opt/hostedtoolcache&#39;,
+ &#39;HOMEBREW_REPOSITORY&#39;: &#39;&quot;/home/linuxbrew/.linuxbrew/Homebrew&quot;&#39;,
  &#39;ImageVersion&#39;: &#39;20210131.1&#39;,
  &#39;DOTNET_NOLOGO&#39;: &#39;1&#39;,
  &#39;GRAALVM_11_ROOT&#39;: &#39;/usr/local/graalvm/graalvm-ce-java11-21.0.0&#39;,
@@ -370,10 +402,10 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;AZURE_EXTENSION_DIR&#39;: &#39;/opt/az/azcliextensions&#39;,
  &#39;PERFLOG_LOCATION_SETTING&#39;: &#39;RUNNER_PERFLOG&#39;,
  &#39;GITHUB_REPOSITORY&#39;: &#39;sergiopasra/taller-python-tools&#39;,
- &#39;CHROME_BIN&#39;: &#39;/usr/bin/google-chrome&#39;,
  &#39;ANDROID_NDK_ROOT&#39;: &#39;/usr/local/lib/android/sdk/ndk-bundle&#39;,
+ &#39;CHROME_BIN&#39;: &#39;/usr/bin/google-chrome&#39;,
  &#39;GITHUB_RETENTION_DAYS&#39;: &#39;90&#39;,
- &#39;JOURNAL_STREAM&#39;: &#39;9:19380&#39;,
+ &#39;JOURNAL_STREAM&#39;: &#39;9:20359&#39;,
  &#39;RUNNER_WORKSPACE&#39;: &#39;/home/runner/work/taller-python-tools&#39;,
  &#39;LEIN_HOME&#39;: &#39;/usr/local/lib/lein&#39;,
  &#39;LEIN_JAR&#39;: &#39;/usr/local/lib/lein/self-installs/leiningen-2.9.5-standalone.jar&#39;,
@@ -392,7 +424,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
  &#39;GOROOT_1_15_X64&#39;: &#39;/opt/hostedtoolcache/go/1.15.7/x64&#39;,
  &#39;AGENT_TOOLSDIRECTORY&#39;: &#39;/opt/hostedtoolcache&#39;,
  &#39;_&#39;: &#39;/opt/hostedtoolcache/Python/3.8.7/x64/bin/jupyter-book&#39;,
- &#39;JPY_PARENT_PID&#39;: &#39;1559&#39;,
+ &#39;JPY_PARENT_PID&#39;: &#39;1676&#39;,
  &#39;TERM&#39;: &#39;xterm-color&#39;,
  &#39;CLICOLOR&#39;: &#39;1&#39;,
  &#39;PAGER&#39;: &#39;cat&#39;,
@@ -447,7 +479,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
 --------------------------------
-fib        function    &lt;function fib at 0x7f7805f5e820&gt;
+fib        function    &lt;function fib at 0x7fb4edcb9820&gt;
 fibs       list        n=10
 ns         range       range(0, 10)
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
@@ -477,7 +509,7 @@ plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>471 ns ± 1.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>453 ns ± 5.32 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -489,7 +521,7 @@ plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.19 ms ± 28.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.81 ms ± 32.3 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -596,7 +628,7 @@ def fibcy(int n):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>253 ns ± 8.79 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>233 ns ± 1.14 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -609,40 +641,38 @@ def fibcy(int n):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rpy2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading rpy2-3.4.2.tar.gz (186 kB)
+  Downloading rpy2-3.4.2.tar.gz (186 kB)
 ?25l
-     |█▊                              | 10 kB 34.1 MB/s eta 0:00:01
-     |███▌                            | 20 kB 32.2 MB/s eta 0:00:01
-     |█████▎                          | 30 kB 12.8 MB/s eta 0:00:01
-     |███████                         | 40 kB 6.7 MB/s eta 0:00:01
-     |████████▉                       | 51 kB 8.2 MB/s eta 0:00:01
-     |██████████▋                     | 61 kB 9.6 MB/s eta 0:00:01
-     |████████████▎                   | 71 kB 9.5 MB/s eta 0:00:01
-     |██████████████                  | 81 kB 9.5 MB/s eta 0:00:01
-     |███████████████▉                | 92 kB 9.2 MB/s eta 0:00:01
-     |█████████████████▋              | 102 kB 7.8 MB/s eta 0:00:01
-     |███████████████████▍            | 112 kB 7.8 MB/s eta 0:00:01
-     |█████████████████████▏          | 122 kB 7.8 MB/s eta 0:00:01
-     |███████████████████████         | 133 kB 7.8 MB/s eta 0:00:01
-     |████████████████████████▋       | 143 kB 7.8 MB/s eta 0:00:01
-     |██████████████████████████▍     | 153 kB 7.8 MB/s eta 0:00:01
-     |████████████████████████████▏   | 163 kB 7.8 MB/s eta 0:00:01
-     |██████████████████████████████  | 174 kB 7.8 MB/s eta 0:00:01
-     |███████████████████████████████▊| 184 kB 7.8 MB/s eta 0:00:01
-     |████████████████████████████████| 186 kB 7.8 MB/s 
+     |█▊                              | 10 kB 38.4 MB/s eta 0:00:01
+     |███▌                            | 20 kB 32.1 MB/s eta 0:00:01
+     |█████▎                          | 30 kB 23.5 MB/s eta 0:00:01
+     |███████                         | 40 kB 21.8 MB/s eta 0:00:01
+     |████████▉                       | 51 kB 16.1 MB/s eta 0:00:01
+     |██████████▋                     | 61 kB 18.5 MB/s eta 0:00:01
+     |████████████▎                   | 71 kB 15.8 MB/s eta 0:00:01
+     |██████████████                  | 81 kB 15.1 MB/s eta 0:00:01
+     |███████████████▉                | 92 kB 16.6 MB/s eta 0:00:01
+     |█████████████████▋              | 102 kB 15.8 MB/s eta 0:00:01
+     |███████████████████▍            | 112 kB 15.8 MB/s eta 0:00:01
+     |█████████████████████▏          | 122 kB 15.8 MB/s eta 0:00:01
+     |███████████████████████         | 133 kB 15.8 MB/s eta 0:00:01
+     |████████████████████████▋       | 143 kB 15.8 MB/s eta 0:00:01
+     |██████████████████████████▍     | 153 kB 15.8 MB/s eta 0:00:01
+     |████████████████████████████▏   | 163 kB 15.8 MB/s eta 0:00:01
+     |██████████████████████████████  | 174 kB 15.8 MB/s eta 0:00:01
+     |███████████████████████████████▊| 184 kB 15.8 MB/s eta 0:00:01
+     |████████████████████████████████| 186 kB 15.8 MB/s 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied: cffi&gt;=1.10.0 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (1.14.4)
 Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (2.11.3)
 Requirement already satisfied: pytz in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from rpy2) (2021.1)
-Collecting tzlocal
-  Downloading tzlocal-2.1-py2.py3-none-any.whl (16 kB)
-Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from cffi&gt;=1.10.0-&gt;rpy2) (2.20)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=0.23 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from jinja2-&gt;rpy2) (1.1.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tzlocal
+  Downloading tzlocal-2.1-py2.py3-none-any.whl (16 kB)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from cffi&gt;=1.10.0-&gt;rpy2) (2.20)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages (from jinja2-&gt;rpy2) (1.1.1)
 Building wheels for collected packages: rpy2
 </pre></div>
 </div>
@@ -658,11 +688,8 @@ Building wheels for collected packages: rpy2
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for rpy2: filename=rpy2-3.4.2-cp38-cp38-linux_x86_64.whl size=338227 sha256=81785f310297a8af3eaecf1ca46d3727bcb312b7e99c2901706bd96185f293aa
+?25h  Created wheel for rpy2: filename=rpy2-3.4.2-cp38-cp38-linux_x86_64.whl size=338227 sha256=7be5b3829013cadd2dbab57e8ec85c5c7a015d8ee14cb970bc14c9a57123bbd1
   Stored in directory: /home/runner/.cache/pip/wheels/1e/71/a3/7811e97007d6189777c751352c06f3de1a9997db9526cdabe0
 Successfully built rpy2
 </pre></div>
@@ -748,7 +775,7 @@ fibr(20)
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="magics.html" title="previous page">Comándos mágicos</a>
-    <a class='right-next' id="next-link" href="../part2.html" title="next page">Numpy</a>
+    <a class='right-next' id="next-link" href="../chap2/index.html" title="next page">Numpy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
