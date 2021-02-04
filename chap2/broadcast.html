@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Comparaciones y máscaras boleanas" href="mask.html" />
+    <link rel="next" title="Comparaciones y máscaras booleanas" href="mask.html" />
     <link rel="prev" title="Funciones universales" href="ufunc.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -159,7 +159,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="mask.html">
-   Comparaciones y máscaras boleanas
+   Comparaciones y máscaras booleanas
   </a>
  </li>
  <li class="toctree-l1">
@@ -293,6 +293,47 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reglas-de-broadcasting">
+   Reglas de broadcasting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-1">
+     Ejemplo 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-2">
+     Ejemplo 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-3">
+     Ejemplo 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-4">
+     Ejemplo 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-5">
+     Ejemplo 5
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -333,11 +374,48 @@ que permiten aplicar la vectorización a <em>arrays de diferente tamaño</em>.</
 </div>
 </div>
 </div>
-<p>El resultado es equivalente a extender o difundir (<em>bradcast</em>) el escalar
+<p>El resultado es equivalente a extender o difundir (<em>broadcast</em>) el escalar
 al tamaño completo del array. Es importante recalcar que esta extensión
 no se realiza en memoria (no se crea un array nuevo) pero es un modelo para
 entender lo que sucede.</p>
 <p>Veamos que sucede si extendemos la operación a un caso bidimensional.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c=&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c= [[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 2., 3.],
+       [1., 2., 3.],
+       [1., 2., 3.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, el array <code class="docutils literal notranslate"><span class="pre">a</span></code> se ha extendido por filas.</p>
+<div class="section" id="reglas-de-broadcasting">
+<h2>Reglas de broadcasting<a class="headerlink" href="#reglas-de-broadcasting" title="Permalink to this headline">¶</a></h2>
+<p>Numpy tiene unas reglas que determinan cómo se propagan los valores
+cuando hay interacción entre arrays.
+Se comparan las dimensiones de los dos arrays de derecha a izquierda.
+Los valores son compatibles si:</p>
+<ul class="simple">
+<li><p>Son iguales</p></li>
+<li><p>Uno de ellos es uno</p></li>
+<li><p>Uno de ellos está vacío</p></li>
+</ul>
+<p>En caso contrario se lanza la excepción <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">operands</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">broadcast</span> <span class="pre">together</span></code>.</p>
+<p>Veamos algunos ejemplos.</p>
+<div class="section" id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -353,7 +431,218 @@ entender lo que sucede.</p>
 </div>
 </div>
 </div>
-<p>En este caso, el array <code class="docutils literal notranslate"><span class="pre">a</span></code> se ha extendido</p>
+<pre> 
+       c  (2d) 3 x 3
+       a  (1d)     3
+resultado (2d) 3 x 3
+</pre>
+<p>Empezando por la derecha, la dimensión 3 es compatible. La sigiente
+es 3 para <code class="docutils literal notranslate"><span class="pre">c</span></code> y no existe para <code class="docutils literal notranslate"><span class="pre">a</span></code>. Así que en esa dimensión <code class="docutils literal notranslate"><span class="pre">a</span></code> adquiere una
+dimensión 1 (1x3) y luego se replica (por filas).</p>
+</div>
+<div class="section" id="ejemplo-2">
+<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Permalink to this headline">¶</a></h3>
+<p>¿Cómo lograríamos sumar por columnas en lugar de filas?. Dado que ejes se emparejan por la derecha, tendríamos que tener una distribución así:</p>
+<pre> 
+       c  (2d) 3 x 3
+       b  (2d) 3 x 1
+resultado (2d) 3 x 3
+</pre>
+<p>Sin embargo, el array <code class="docutils literal notranslate"><span class="pre">b</span></code> no puede ser 1-dimensional, dado que en numpy
+los arrays 1d son siempre vectores fila.</p>
+<p>Podemos convertir el array <code class="docutils literal notranslate"><span class="pre">a</span></code> en otro array <code class="docutils literal notranslate"><span class="pre">b</span></code> 2d, pero con una dimensión igual a 1 (vector columna o fila) usando <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> o <code class="docutils literal notranslate"><span class="pre">reshape</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 1)
+(3, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La forma con <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> es más práctica ya permite añadir una dimensión
+sin tener que saber el tamaño del array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 1., 1.],
+       [2., 2., 2.],
+       [3., 3., 3.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya tenemos:</p>
+<pre> 
+       c  (2d) 3 x 3
+       b  (2d) 3 x 1
+resultado (2d) 3 x 3
+</pre>
+<p>Y como se ve, el array se replica por columnas.</p>
+</div>
+<div class="section" id="ejemplo-3">
+<h3>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Permalink to this headline">¶</a></h3>
+<p>Supongamos que queremos multiplicar dos vectores de diferente dimensión</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">a9b462a5fc0c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,) (4,) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se produce un error ya que se incumplen las reglas de <em>broadcast</em>.</p>
+<pre> 
+       a  (1d) 3
+       b  (1d) 4
+resultado error
+</pre>
+<p>Para que sea posible el producto, tenemos que añadir una dimensión extra o bien
+a <code class="docutils literal notranslate"><span class="pre">a</span></code> o bien a <code class="docutils literal notranslate"><span class="pre">b</span></code>. El tamaño final depende de a qué array se añada:</p>
+<pre> 
+       a  (2d) 3x1
+       b  (1d)   4
+resultado (2d) 3x4
+</pre>
+<p>y también es posible:</p>
+<pre> 
+       a  (1d)   3
+       b  (2d) 4x1
+resultado (2d) 4x3
+</pre>
+<p>Para el primer caso:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0],
+       [0, 1, 2, 3],
+       [0, 2, 4, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>y para el segundo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0],
+       [0, 1, 2],
+       [0, 2, 4],
+       [0, 3, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-4">
+<h3>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Permalink to this headline">¶</a></h3>
+<p>Un ejemplo útil es la generación de funciones sobre grid.
+Supongamos que queremos evaluar <span class="math notranslate nohighlight">\(f(x, y) = \cos (x + 2y) \sin(x^2 - y)\)</span></p>
+<p>Podemos hacer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fxy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fxy</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, el resultado es unidimensional, no 2d. Tanto <code class="docutils literal notranslate"><span class="pre">x</span></code> como <code class="docutils literal notranslate"><span class="pre">y</span></code>
+tienen de tamaño <code class="docutils literal notranslate"><span class="pre">(100,)</span></code>, por lo que se multiplican como 1d.</p>
+<p>Para conseguir que <code class="docutils literal notranslate"><span class="pre">fxy</span></code> sea bidimensional, tenemos que hacer <code class="docutils literal notranslate"><span class="pre">x</span></code> o <code class="docutils literal notranslate"><span class="pre">y</span></code>
+bidimensional añadiendo un eje con <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">fxy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Podemos pintar la función con matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fxy</span><span class="p">,</span>  <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]);</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape:&#39;</span><span class="p">,</span> <span class="n">fxy</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape: (100, 100)
+</pre></div>
+</div>
+<img alt="../_images/broadcast_21_1.png" src="../_images/broadcast_21_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-5">
+<h3>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Permalink to this headline">¶</a></h3>
+<p>Como último ejemplo, vamos a centrar un array tabular restando la media por
+columnas. Empezamos construyendo un array que contendrá la tabla, con
+4 columnas (las características) y 100 filas (los objetos).
+Rellenamos cada columna con datos aleatorios de una distribución normal
+diferente media y varianza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">],</span> 
+                       <span class="n">scale</span><span class="o">=</span><span class="p">[</span><span class="mf">2.1</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span> 
+                       <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+                       <span class="p">)</span>
+<span class="c1"># la media se calcula colapsando las filas</span>
+<span class="n">mean_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># dadas las dimensiones (100, 4) y (4,), podemos restar</span>
+<span class="c1"># directamente</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">-</span> <span class="n">mean_arr</span>
+<span class="c1"># y la media es:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="c1"># que son valores compatibles con 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 7.81597009e-16  2.24820162e-17  8.65973959e-17 -1.05471187e-16]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -385,7 +674,7 @@ entender lo que sucede.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="ufunc.html" title="previous page">Funciones universales</a>
-    <a class='right-next' id="next-link" href="mask.html" title="next page">Comparaciones y máscaras boleanas</a>
+    <a class='right-next' id="next-link" href="mask.html" title="next page">Comparaciones y máscaras booleanas</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

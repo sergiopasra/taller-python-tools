@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comparaciones y máscaras boleanas &#8212; Taller Python</title>
+    <title>Comparaciones y máscaras booleanas &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -159,7 +159,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Comparaciones y máscaras boleanas
+   Comparaciones y máscaras booleanas
   </a>
  </li>
  <li class="toctree-l1">
@@ -293,6 +293,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usos-de-los-arrays-booleanos">
+   Usos de los arrays booleanos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operadores-booleanos">
+   Operadores booleanos
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -300,8 +319,200 @@
         
               <div>
                 
-  <div class="section" id="comparaciones-y-mascaras-boleanas">
-<h1>Comparaciones y máscaras boleanas<a class="headerlink" href="#comparaciones-y-mascaras-boleanas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="comparaciones-y-mascaras-booleanas">
+<h1>Comparaciones y máscaras booleanas<a class="headerlink" href="#comparaciones-y-mascaras-booleanas" title="Permalink to this headline">¶</a></h1>
+<p>Las máscaras de tipos lógicos (booleanos) permiten manipular valores en
+arrays basados en criterios sobre los propios arrays, como seleccionar
+valores en un cierto rango.</p>
+<p>Ya hemos hablado de cómo las operaciones aritméticas se implementan
+como ufuncs. De la misma manera, los operadores de comparación también
+son ufuncs binarios que devuelven valores lógicos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False,  True, False])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los operadores de comparación son <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code> y <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
+<p>Cada uno tiene definida un <code class="docutils literal notranslate"><span class="pre">ufunc</span></code> equivalente. Por ejemplo <code class="docutils literal notranslate"><span class="pre">np.equal</span></code>
+o <code class="docutils literal notranslate"><span class="pre">np.less</span></code>.
+Estos ufuncs funcionan igual que los aritméticos, incluyendo <em>broadcasting</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
+       [False, False,  True],
+       [False,  True,  True]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Igual que en una suma, aquí la comparación es por filas. Si quisiéramos comparar
+por columnas, podríamos hacer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
+       [ True, False, False],
+       [ True,  True,  True]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usos-de-los-arrays-booleanos">
+<h2>Usos de los arrays booleanos<a class="headerlink" href="#usos-de-los-arrays-booleanos" title="Permalink to this headline">¶</a></h2>
+<p>Hay una buena contidad de operaciones útiles basadas en los arrays booleanos.
+Una puede ser contar valores que cumplen un criterio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="c1"># Contamos valores &lt; 5</span>
+<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>También puede hacerse según uno de los ejes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Desaparece el eje 0, por columnas&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Desaparece el eje 1, por filas&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desaparece el eje 0, por columnas [3 2 2 3]
+Desaparece el eje 1, por filas [3 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos también encontrar el valor lógico comninado de un array booleano.
+con las funciones <code class="docutils literal notranslate"><span class="pre">np.any</span></code> y <code class="docutils literal notranslate"><span class="pre">np.all</span></code>. <code class="docutils literal notranslate"><span class="pre">any</span></code> devuelve verdadero si hay
+algun valor verdadero, mientras que <code class="docutils literal notranslate"><span class="pre">all</span></code> devuelve falso si hay algún
+valor falso. Son el equivalente de reducir los arrays
+usando <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">and</span></code> respectivamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Son todos lo valores mayores que 2?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Hay algún valor menor que 1?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aunque <code class="docutils literal notranslate"><span class="pre">any</span></code> y <code class="docutils literal notranslate"><span class="pre">all</span></code> no son ufuncs, tiene algunos de sus argumentos.
+Por ejemplo, <code class="docutils literal notranslate"><span class="pre">axis</span></code> permite realizar la reducción por filas o columnas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿hay alguna columna cuyos valores sean menores que 3?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operadores-booleanos">
+<h2>Operadores booleanos<a class="headerlink" href="#operadores-booleanos" title="Permalink to this headline">¶</a></h2>
+<p>Además de los operadores de comparación, numpy también tiene
+operadores lógicos bit a bit, que también son ufuncs. No se utiliza
+para ellos <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span></code>. En su lugar se utilizan operadores los
+<code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and), <code class="docutils literal notranslate"><span class="pre">|</span></code> (or), <code class="docutils literal notranslate"><span class="pre">^</span></code> (xor) y <code class="docutils literal notranslate"><span class="pre">~</span></code> (not), con sus correspondientes unfuncs
+(<code class="docutils literal notranslate"><span class="pre">np.bitwise_and</span></code>, <code class="docutils literal notranslate"><span class="pre">np.bitwise_or</span></code>, etc).</p>
+<p>Para ver su uso, vamos a trabajar con una imagen de la nebulosaa
+Cabeza de caballo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">get_pkg_data_filename</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">image_file</span> <span class="o">=</span> <span class="n">get_pkg_data_filename</span><span class="p">(</span><span class="s1">&#39;tutorials/FITS-images/HorseHead.fits&#39;</span><span class="p">)</span>
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">image_file</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mask_16_0.png" src="../_images/mask_16_0.png" />
+</div>
+</div>
+<p>La imagen es un array bidimensional. Construimos dos máscaras. La primera
+<code class="docutils literal notranslate"><span class="pre">mask1</span></code> contiene los valores menores que la media mas 3 veces la desviación
+típica Y los valores mayores que la media menos tres vece la desviación típica.</p>
+<p>La máscara <code class="docutils literal notranslate"><span class="pre">mask2</span></code> es la negación de la anterior, así que contiene
+los valores por encima de 3 veces la desviación tipica sobre la media y
+por debajo de -3 veces.</p>
+<p>Una máscara puede utilizarse no solo para listar los valores que cumplen el
+criterio, sino también para asignar valores. En este caso. asignamos el valor
+medio de la imagen a los valores más extremos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">image_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">image_data</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">mask1</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_data</span> <span class="o">&lt;</span> <span class="n">mean</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">std</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">image_data</span> <span class="o">&gt;</span> <span class="n">mean</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span><span class="n">std</span><span class="p">)</span>
+<span class="n">mask2</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask1</span>
+<span class="n">image_data</span><span class="p">[</span><span class="n">mask2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9831.481676287574 3032.3927542049046
+</pre></div>
+</div>
+<img alt="../_images/mask_18_1.png" src="../_images/mask_18_1.png" />
+</div>
+</div>
+<p>Como podemos ver, esto hace desaparecer muchas de las estrellas (que
+eran valores positivos extremos).</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
