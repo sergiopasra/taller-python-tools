@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taller python tools &#8212; Taller Python</title>
+    <title>Taller de análisis de datos con Python &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python" href="chap1/sec1.html" />
+    <link rel="next" title="Numpy" href="chap2/index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -87,44 +87,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="#">
-   Taller python tools
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Python y Jupyter
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/sec1.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/sec2.html">
-   Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/ide.html">
-   Entornos de desarrollo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/Fibonacci.html">
-   Números de Fibonnacci
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/magics.html">
-   Comándos mágicos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chap1/magicmd.html">
-   Magic commands
+   Taller de análisis de datos con Python
   </a>
  </li>
 </ul>
@@ -236,6 +199,37 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temas">
+   Temas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion-de-paquetes">
+   Instalación de paquetes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pip">
+     Pip
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conda">
+     Conda
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -243,17 +237,94 @@
         
               <div>
                 
-  <div class="section" id="taller-python-tools">
-<h1>Taller python tools<a class="headerlink" href="#taller-python-tools" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="taller-de-analisis-de-datos-con-python">
+<h1>Taller de análisis de datos con Python<a class="headerlink" href="#taller-de-analisis-de-datos-con-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="temas">
+<h2>Temas<a class="headerlink" href="#temas" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Python, instalación, entornos, paquetes y cuadernos de Jupyter</p></li>
+<li><p>Manejo de arrays con numpy</p></li>
 <li><p>Figuras y gráficos interactivos con matplotlib y plotly</p></li>
 <li><p>Manejo de datos tabulares con Pandas</p></li>
 <li><p>Manejo de unidades físicas con astropy</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="instalacion-de-paquetes">
+<h2>Instalación de paquetes<a class="headerlink" href="#instalacion-de-paquetes" title="Permalink to this headline">¶</a></h2>
+<p>El taller require versiones actualizadas de jupyter, numpy, pandas, matplotlib,
+plotly y astropy</p>
+<p>Para evitar problemas de compatibilidad se recomienda utilizar un entorno
+python aislado, que se puede crear con <strong>pip</strong> o con <strong>conda</strong></p>
+<p>En caso de no tener experiencia previa, creo que lo más sencillo es
+instalar Jupyter con pip en Linux y con conda en Mac y Windows</p>
+<div class="section" id="pip">
+<h3>Pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
+<p>El primer paso es crear un <em>entorno virtual</em>. De esa manera usaremos un Python aislado del Python del sistema, donde podremos instalar y desintalar paquetes sin permisos de administrador.</p>
+<p>En una terminal, escribimos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv taller
+</pre></div>
+</div>
+<p>Este comando nos creará un directorio <code class="docutils literal notranslate"><span class="pre">taller</span></code> con toda la estructura
+de directorios de Python. A continuación hay que activar el entorno, lo
+que hará que, en esa terminal en particular, el comando <code class="docutils literal notranslate"><span class="pre">python</span></code> invoque
+el ejecutable en <code class="docutils literal notranslate"><span class="pre">taller/bin/python</span></code>.</p>
+<p>La activación se realiza con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source taller/bin/activate
+</pre></div>
+</div>
+<p>A continuación , el <em>prompt</em> cambia para indicar que estamos dentro del
+entorno:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $
+</pre></div>
+</div>
+<p>Para salir del entorno, basta escribir <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> (o cerrar la terminal).</p>
+<p>La instalación de paquetes es simplemente:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ pip install notebook pandas astropy numpy matplotlib
+</pre></div>
+</div>
+<p>para ejecutar el cuaderno, en la terminal podemos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ jupyter notebook
+</pre></div>
+</div>
+</div>
+<div class="section" id="conda">
+<h3>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h3>
+<p>La instalación de conda está detallada en
+https://docs.anaconda.com/anaconda/install/</p>
+<p>Una vez instalado conda, creamos un entorno con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name taller
+</pre></div>
+</div>
+<p>Activamos el entorno con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate taller
+</pre></div>
+</div>
+<p>E instalamos con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ conda install -c conda-forge notebook pandas astropy numpy matplotlib
+
+## Licencias
+
+Del código: [BSD](https://github.com/sergiopasra/taller-python-tools/blob/main/LICENSE)
+
+
+
+
+```{toctree}
+:hidden:
+:titlesonly:
+:caption: Python y Jupyter
+
+chap1/sec1
+chap1/sec2
+chap1/ide
+chap1/Fibonacci
+chap1/magics
+chap1/magicmd
+</pre></div>
 </div>
 <div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 </div>
 
@@ -285,7 +356,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="chap1/sec1.html" title="next page">Python</a>
+    <a class='right-next' id="next-link" href="chap2/index.html" title="next page">Numpy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
