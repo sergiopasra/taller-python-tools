@@ -19,14 +19,3 @@
   - file: chap2/indexing
   - file: chap2/structured
 
-- part: Matplotlib y plotly
-  chapters:
-  - file: part3
-
-- part: Pandas
-  chapters:
-  - file: part4
-
-- part: Uso de unidades
-  chapters:
-  - file: part5
