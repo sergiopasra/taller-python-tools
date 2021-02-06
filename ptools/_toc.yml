@@ -1,8 +1,12 @@
 - file: intro
 
+- part: Instalación
+  chapters:
+  - file: install
+
 - part: Python y Jupyter
   chapters:
-  - file: cap1/sec1
+  - file: cap1/python
   - file: cap1/sec2
   - file: cap1/ide
   - file: cap1/Fibonacci
@@ -11,8 +15,9 @@
 
 - part: Numpy
   chapters:
-  - file: cap2/index
+  - file: cap2/intro
   - file: cap2/datos
+  - file: cap2/base
   - file: cap2/ufunc
   - file: cap2/broadcast
   - file: cap2/mask
