@@ -1,21 +1,21 @@
-- file: index
+- file: intro
 
 - part: Python y Jupyter
   chapters:
-  - file: chap1/sec1
-  - file: chap1/sec2
-  - file: chap1/ide
-  - file: chap1/Fibonacci
-  - file: chap1/magics
-  - file: chap1/magicmd
+  - file: cap1/sec1
+  - file: cap1/sec2
+  - file: cap1/ide
+  - file: cap1/Fibonacci
+  - file: cap1/magics
+  - file: cap1/magicmd
 
 - part: Numpy
   chapters:
-  - file: chap2/index
-  - file: chap2/datos
-  - file: chap2/ufunc
-  - file: chap2/broadcast
-  - file: chap2/mask
-  - file: chap2/indexing
-  - file: chap2/structured
+  - file: cap2/index
+  - file: cap2/datos
+  - file: cap2/ufunc
+  - file: cap2/broadcast
+  - file: cap2/mask
+  - file: cap2/indexing
+  - file: cap2/structured
 
