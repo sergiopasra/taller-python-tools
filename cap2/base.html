@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Numpy &#8212; Taller Python</title>
+    <title>Estructura de un ndarray &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tipos de datos" href="datos.html" />
-    <link rel="prev" title="Taller de análisis de datos con Python" href="../index.html" />
+    <link rel="next" title="Funciones universales" href="ufunc.html" />
+    <link rel="prev" title="Tipos de datos" href="datos.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -87,8 +87,57 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../intro.html">
    Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Instalación
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install.html">
+   Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python y Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/sec2.html">
+   Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magics.html">
+   Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -98,14 +147,24 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="datos.html">
    Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Estructura de un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ndarray
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -174,11 +233,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/chap2/index.ipynb"><button type="button"
+            href="../_sources/cap2/base.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chap2/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap2/base.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,7 +262,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/chap2/index.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap2/base.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -227,29 +286,113 @@
         
               <div>
                 
-  <div class="section" id="numpy">
-<h1>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Numpy</span></code> proporciona objetos y funciones para manipular arreglos
-densos de datos. Los objetos <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de Numpy se comportan en
-ciertos aspectos como listas de Python, pero son mucho más
-eficientes cuando se accede o se opera sobre ellos.</p>
-<p>La mayor parte de los pquetes científicos utilizan numpy o al menos admiten
-conversión a su tipo de datos.</p>
-<p>Los ejemplos de este taller son compatibles con numpy versión 1.11 o superior.
-Es muy habitual importar numpy con el nombre <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
+  <div class="section" id="estructura-de-un-ndarray">
+<h1>Estructura de un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code><a class="headerlink" href="#estructura-de-un-ndarray" title="Permalink to this headline">¶</a></h1>
+<p>Es interesante conocer a grandes rasgos cómo se orgniza la estructura interna de un objeto ndarray</p>
+<p>El objeto contiene básicamente un buffer con datos en la memoria, más la información
+sobre cómo interpretar el contenido de la memoria más la inforamción sore cómo moverse dentro de la
+memoria asignada.</p>
+<p>A parte de estos atributos podemos acceder desde Python (aunque rara vez es necesario)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">bytes</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.20.0&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7f0a41a32c40&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x03\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff&#39;
 </pre></div>
 </div>
 </div>
 </div>
+<p>Podemos ver una representación en Python de la estrcutura interna accediendo a <code class="docutils literal notranslate"><span class="pre">__array_interface__</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">__array_interface__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94252365732992, False),
+ &#39;strides&#39;: None,
+ &#39;descr&#39;: [(&#39;&#39;, &#39;&lt;i8&#39;)],
+ &#39;typestr&#39;: &#39;&lt;i8&#39;,
+ &#39;shape&#39;: (3,),
+ &#39;version&#39;: 3}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta estructura contiene la información necesaria para interpretar el fragmento de memoria
+del array. En <code class="docutils literal notranslate"><span class="pre">typestr</span></code> tenemos la información necesaria para interpretar los datos
+y <code class="docutils literal notranslate"><span class="pre">stride</span></code> indica cuánto hay que desplazarse para acceder al siguiente elemento. <code class="docutils literal notranslate"><span class="pre">None</span></code>
+indica un array de C contiguo en memoria.</p>
+<p>Los datos del array pueden ser compartirdos por diversos objetos o incluso estar definido
+de manera externa, por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bytes</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;1234&#39;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">bf</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">bf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>También hay información en el atributo <code class="docutils literal notranslate"><span class="pre">flags</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">flags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  C_CONTIGUOUS : True
+  F_CONTIGUOUS : True
+  OWNDATA : False
+  WRITEABLE : False
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+</pre></div>
+</div>
+</div>
+</div>
+<p>La estructura nos indica que los datos no pertenecen al array</p>
+<p>Otro ejemplo, con una sección:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span><span class="o">.</span><span class="n">flags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  C_CONTIGUOUS : False
+  F_CONTIGUOUS : False
+  OWNDATA : False
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí tenemos que los datos no pertenecen a <code class="docutils literal notranslate"><span class="pre">y</span></code>, pero que podemos escribir en <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">WRITEABLE</span> <span class="pre">:</span> <span class="pre">True</span></code>)
+los cambios de <code class="docutils literal notranslate"><span class="pre">y</span></code> se propagan a <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -265,7 +408,7 @@ Es muy habitual importar numpy con el nombre <code class="docutils literal notra
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chap2"
+            path: "./cap2"
         },
         predefinedOutput: true
     }
@@ -280,8 +423,8 @@ Es muy habitual importar numpy con el nombre <code class="docutils literal notra
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Taller de análisis de datos con Python</a>
-    <a class='right-next' id="next-link" href="datos.html" title="next page">Tipos de datos</a>
+    <a class='left-prev' id="prev-link" href="datos.html" title="previous page">Tipos de datos</a>
+    <a class='right-next' id="next-link" href="ufunc.html" title="next page">Funciones universales</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -86,8 +86,57 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../intro.html">
    Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Instalación
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install.html">
+   Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python y Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/sec2.html">
+   Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magics.html">
+   Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -98,13 +147,23 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
+  <a class="reference internal" href="intro.html">
    Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="datos.html">
    Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="base.html">
+   Estructura de un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ndarray
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -173,11 +232,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/chap2/structured.ipynb"><button type="button"
+            href="../_sources/cap2/structured.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chap2/structured.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap2/structured.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -202,7 +261,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/chap2/structured.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap2/structured.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -477,13 +536,13 @@ con la capacidad adicional de que se puede acceder a las columnas como <strong>a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>145 ns ± 0.395 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>158 ns ± 2.58 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.24 µs ± 40.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.11 µs ± 105 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.32 µs ± 57.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.18 µs ± 62.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -505,7 +564,7 @@ con la capacidad adicional de que se puede acceder a las columnas como <strong>a
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chap2"
+            path: "./cap2"
         },
         predefinedOutput: true
     }

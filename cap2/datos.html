@@ -56,8 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Funciones universales" href="ufunc.html" />
-    <link rel="prev" title="Numpy" href="index.html" />
+    <link rel="next" title="Estructura de un ndarray" href="base.html" />
+    <link rel="prev" title="Numpy" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -87,8 +87,57 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../intro.html">
    Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Instalación
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install.html">
+   Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python y Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/sec2.html">
+   Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magics.html">
+   Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magicmd.html">
+   Magic commands
   </a>
  </li>
 </ul>
@@ -99,13 +148,23 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
+  <a class="reference internal" href="intro.html">
    Numpy
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="base.html">
+   Estructura de un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ndarray
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -174,11 +233,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/chap2/datos.ipynb"><button type="button"
+            href="../_sources/cap2/datos.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chap2/datos.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap2/datos.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,7 +262,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/chap2/datos.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap2/datos.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -542,9 +601,9 @@ array existente: <code class="docutils literal notranslate"><span class="pre">ze
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.7164736 , 5.17432959, 0.26255951],
-       [1.37193274, 1.02551432, 3.18504537],
-       [4.09185257, 4.59246468, 2.33635864]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.37064208, -1.27564876,  2.75289102],
+       [ 2.09441632,  1.27833387,  4.09596275],
+       [ 3.10252088,  2.3337339 ,  4.13087672]])
 </pre></div>
 </div>
 </div>
@@ -580,7 +639,7 @@ en los arrays estructurados.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chap2"
+            path: "./cap2"
         },
         predefinedOutput: true
     }
@@ -595,8 +654,8 @@ en los arrays estructurados.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Numpy</a>
-    <a class='right-next' id="next-link" href="ufunc.html" title="next page">Funciones universales</a>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Numpy</a>
+    <a class='right-next' id="next-link" href="base.html" title="next page">Estructura de un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
