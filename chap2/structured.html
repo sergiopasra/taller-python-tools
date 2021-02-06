@@ -219,6 +219,30 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-de-creacion-de-arrays-estructurados">
+   Métodos de creación de arrays estructurados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-tipo-recarray">
+   El tipo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     recarray
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -228,6 +252,244 @@
                 
   <div class="section" id="arrays-estructurados">
 <h1>Arrays estructurados<a class="headerlink" href="#arrays-estructurados" title="Permalink to this headline">¶</a></h1>
+<p>Una de las características que hemos visto de los arrays de numpy es que su tipo interno de datos es <strong>homogéneo</strong>.
+Sin embargo, los datos tabulares a veces requieren datos con tipos heterogéneos.</p>
+<p>Para este tipo de datos, numpy ofrece arrays con un tipo de datos complejo: arrays estructurados y <code class="docutils literal notranslate"><span class="pre">recarray</span></code>.</p>
+<p>Este tipo de datos funcoina bien en escenarios de uso sencillos. Cuando las operaciones sobre los
+datos se vuelven complejas, resulta más conveniente utilizar Pandas y su <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>Supongamos que tenemos datos sobre los planetas del sistema solar en diferentes categorías.
+Se podrían almacenar estos datos en diferentes arrays o listas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">nombre</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mercurio&#39;</span><span class="p">,</span> <span class="s1">&#39;Venus&#39;</span><span class="p">,</span> <span class="s1">&#39;Tierra&#39;</span><span class="p">,</span> <span class="s1">&#39;Marte&#39;</span><span class="p">,</span> <span class="s1">&#39;Júpiter&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturno&#39;</span><span class="p">,</span> <span class="s1">&#39;Urano&#39;</span><span class="p">,</span> <span class="s1">&#39;Neptuno&#39;</span><span class="p">]</span>
+<span class="n">semieje</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.39</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.52</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.54</span><span class="p">,</span> <span class="mf">19.19</span><span class="p">,</span> <span class="mf">30.06</span><span class="p">]</span>
+<span class="n">nlunas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero este estilo no es muy conveniente. No hay nada en los datos que indique que pertencen a los
+mismos objetos. Sería más natural si pudiéramos encuadrar los datos dentro de un única estrutura.</p>
+<p>Numpy puede manejar este tipo de datos mediante arrays estructurados, que son que aqellos que tienen
+un tipo de datos <code class="docutils literal notranslate"><span class="pre">dtype</span></code> compuesto.</p>
+<p>Igual que para generar un array de enteros hacemos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos generar un array compuesto pasando un dicionario en <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (hay otras posibilidades):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;semieje&#39;</span><span class="p">,</span> <span class="s1">&#39;nlunas&#39;</span><span class="p">),</span>
+                          <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;U10&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="s1">&#39;u2&#39;</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;nombre&#39;, &#39;&lt;U10&#39;), (&#39;semieje&#39;, &#39;&lt;f4&#39;), (&#39;nlunas&#39;, &#39;&lt;u2&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los diferentes formatos son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">U10</span></code>: cadena de unicode longitud máxima 10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f4</span></code>: número de coma flotante de 4 bytes o 32 bits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u2</span></code>: número entero sin signo de 2 bytes o 16 bits</p></li>
+</ul>
+<p>Ahora que tenemos el contenedor creado, podemos rellenarlo con los valores anteriores.
+Podemos acceder a cada columna por el nombre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nombre</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;semieje&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">semieje</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;nlunas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nlunas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Mercurio&#39;,  0.39,  0) (&#39;Venus&#39;,  0.72,  0) (&#39;Tierra&#39;,  1.  ,  1)
+ (&#39;Marte&#39;,  1.52,  2) (&#39;Júpiter&#39;,  5.2 , 79) (&#39;Saturno&#39;,  9.54, 82)
+ (&#39;Urano&#39;, 19.19, 27) (&#39;Neptuno&#39;, 30.06, 14)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>De esta manera, todos los datos están almacendos en un solo objeto en memoria.
+Además, podemos acceder a los registros por un índice o a las diferentes columnas
+por nombre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nombres de los planetas</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Mercurio&#39;, &#39;Venus&#39;, &#39;Tierra&#39;, &#39;Marte&#39;, &#39;Júpiter&#39;, &#39;Saturno&#39;,
+       &#39;Urano&#39;, &#39;Neptuno&#39;], dtype=&#39;&lt;U10&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tercer planeta desde el Sol</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Tierra&#39;, 1., 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lunas del penúltimo planeta</span>
+<span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;nlunas&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con las herramientas de las secciones anteriores podemos realizar filtrado
+con máscara booleanas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lunas de los planetas exteriores</span>
+<span class="c1"># i.e, distancia mayor que Marte (1.5)</span>
+<span class="n">data</span><span class="p">[</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;semieje&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">][</span><span class="s1">&#39;nlunas&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([79, 82, 27, 14], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aunque este tipo de manipulaciones son factibles, en cuanto se hacen un poco
+complicadas es más práctico utilizar un paquete especializado de datos tabulares,
+como pandas o xarray.</p>
+<p>Los tipos estructurados de numpy están diseñados para reflejar los tipos de dato
+<code class="docutils literal notranslate"><span class="pre">struct</span></code> de C y para acceder a <em>buffers</em> de datos de bajo nivel, como por
+ejemplo para interpretar datos opacos (blobs) binarios. Por eso los <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
+estructurados tienen soporte para uniones (<code class="docutils literal notranslate"><span class="pre">union</span></code>), datos anidados, etc.
+Puede darse el caso de que los tipos estructurados de numpy tengan peor desempeño
+que los tipos de pandas.</p>
+<div class="section" id="metodos-de-creacion-de-arrays-estructurados">
+<h2>Métodos de creación de arrays estructurados<a class="headerlink" href="#metodos-de-creacion-de-arrays-estructurados" title="Permalink to this headline">¶</a></h2>
+<p>Los arrays estructurados pueden crearse de diferentes maneras. Existen unas
+cuantas que solo estan permitidas para mantener compatibilidad hacia atrás
+con versiones antiguas de numpy (y que no deben utilizarse en código nuevo).</p>
+<p><code class="docutils literal notranslate"><span class="pre">dtype</span></code> puede especificarse como diccionario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;semieje&#39;</span><span class="p">,</span> <span class="s1">&#39;nlunas&#39;</span><span class="p">),</span>
+          <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;U10&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="s1">&#39;u2&#39;</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype([(&#39;nombre&#39;, &#39;&lt;U10&#39;), (&#39;semieje&#39;, &#39;&lt;f4&#39;), (&#39;nlunas&#39;, &#39;&lt;u2&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>también con tipos de datos en vez de cadenas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;semieje&#39;</span><span class="p">,</span> <span class="s1">&#39;nlunas&#39;</span><span class="p">),</span>
+          <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype([(&#39;nombre&#39;, &#39;&lt;U10&#39;), (&#39;semieje&#39;, &#39;&lt;f4&#39;), (&#39;nlunas&#39;, &#39;&lt;u2&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>o como lista de tuplas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;semieje&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;nlunas&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype([(&#39;nombre&#39;, &#39;&lt;U10&#39;), (&#39;semieje&#39;, &#39;&lt;f4&#39;), (&#39;nlunas&#39;, &#39;&lt;u2&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>si no se da nombre a las columnas, el nombre por defecto es <code class="docutils literal notranslate"><span class="pre">f#</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;U10,f4,u2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype([(&#39;f0&#39;, &#39;&lt;U10&#39;), (&#39;f1&#39;, &#39;&lt;f4&#39;), (&#39;f2&#39;, &#39;&lt;u2&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="el-tipo-recarray">
+<h2>El tipo <code class="docutils literal notranslate"><span class="pre">recarray</span></code><a class="headerlink" href="#el-tipo-recarray" title="Permalink to this headline">¶</a></h2>
+<p>Por último, mencionar que el tipo <code class="docutils literal notranslate"><span class="pre">recarray</span></code> es equivalente a los tipos estructurados
+con la capacidad adicional de que se puede acceder a las columnas como <strong>atributo</strong>.</p>
+<p>Podemos convertir la tabla anterior a recarray con</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_rec</span> <span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">recarray</span><span class="p">)</span>
+<span class="n">data_rec</span><span class="o">.</span><span class="n">nlunas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  0,  1,  2, 79, 82, 27, 14], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La pega es que el acceso a los datos en un recarray es más lento</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> data[&#39;nlunas&#39;]
+<span class="o">%</span><span class="k">timeit</span> data_rec[&#39;nlunas&#39;]
+<span class="o">%</span><span class="k">timeit</span> data_rec.nlunas
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>145 ns ± 0.395 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.24 µs ± 40.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.32 µs ± 57.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Incluso usando el operador[], el acceso en recarray es más lento por un orden de magnitud</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
