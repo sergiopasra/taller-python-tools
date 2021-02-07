@@ -279,6 +279,38 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descriptores-de-datos">
+   Descriptores de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-de-tipos">
+   Conversión de tipos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vistas">
+   Vistas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-funcionan-los-indices-strides">
+   Cómo funcionan los índices:
+   <em>
+    strides
+   </em>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -303,7 +335,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7f0a41a32c40&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7f18519bfc40&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x03\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff&#39;
@@ -319,7 +351,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94252365732992, False),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (93860411357280, False),
  &#39;strides&#39;: None,
  &#39;descr&#39;: [(&#39;&#39;, &#39;&lt;i8&#39;)],
  &#39;typestr&#39;: &#39;&lt;i8&#39;,
@@ -391,8 +423,233 @@ de manera externa, por ejemplo</p>
 </div>
 </div>
 </div>
-<p>Aquí tenemos que los datos no pertenecen a <code class="docutils literal notranslate"><span class="pre">y</span></code>, pero que podemos escribir en <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">WRITEABLE</span> <span class="pre">:</span> <span class="pre">True</span></code>)
+<p>Aquí tenemos que los datos no pertenecen a <code class="docutils literal notranslate"><span class="pre">y</span></code> (OWNDATA : False),
+pero que podemos
+escribir en la variable <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">WRITEABLE</span> <span class="pre">:</span> <span class="pre">True</span></code>); además
 los cambios de <code class="docutils literal notranslate"><span class="pre">y</span></code> se propagan a <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="section" id="descriptores-de-datos">
+<h2>Descriptores de datos<a class="headerlink" href="#descriptores-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Hemos visto que numpy utiliza una estructura <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
+para describir los datos de un array. Esta estructura contiene
+la clase de los datos <code class="docutils literal notranslate"><span class="pre">type</span></code>, el tamaño del bloque de datos en
+bytes <code class="docutils literal notranslate"><span class="pre">itemsize</span></code>, el orden de los bytes (<em>big-endian</em> &gt;, <em>little-endian</em> &lt;
+, el del sistema = o no aplicable |) en <code class="docutils literal notranslate"><span class="pre">byteorder</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;uint16&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">tp</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;itemsize&#39;</span><span class="p">,</span> <span class="n">tp</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;byteorder&#39;</span><span class="p">,</span> <span class="n">tp</span><span class="o">.</span><span class="n">byteorder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type &lt;class &#39;numpy.uint16&#39;&gt;
+itemsize 2
+byteorder =
+</pre></div>
+</div>
+</div>
+</div>
+<p>La lista de tipos disponibles puede encontrarse en la
+<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.dtypes.html">documentacion de Numpy</a></p>
+</div>
+<div class="section" id="conversion-de-tipos">
+<h2>Conversión de tipos<a class="headerlink" href="#conversion-de-tipos" title="Permalink to this headline">¶</a></h2>
+<p>Se pueden realizar conversiones de tipo manualmente (con el método <code class="docutils literal notranslate"><span class="pre">astype</span></code>)
+automáticamente en ufuncs y en asignaciones. El <em>casting</em> se basa en los tipos
+de datos de los arrays, no en su contenido.</p>
+<p>Veamos algunos ejemplos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3. 4.]
+array([1, 2, 3, 4], dtype=int8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>En una operación de suma se está usando internamente ufuncs.
+Se realiza conversión de tipos basado en el tipo de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 es int8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># pero 200 no</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y+200&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">200</span><span class="p">))</span>
+<span class="c1"># esta operación se pasa a int16</span>
+<span class="c1"># cuidado, la conversión no evita el overflow</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y.datype </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;z.dtype </span><span class="si">{</span><span class="n">z</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;z=</span><span class="si">{</span><span class="n">z</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;z+z=&#39;</span><span class="p">,</span> <span class="n">z</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2 3 4 5]
+y+200 array([201, 202, 203, 204], dtype=int16)
+y.datype int8
+z.dtype int8
+z=array([101, 102, 103, 104], dtype=int8)
+z+z= [-54 -52 -50 -48]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En asignaciones se convierte el dato, no el array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">22.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4]
+[22  2  3  4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para ver las reglas en detalle, de nuevo podemos acudir a la
+<a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#casting-rules">documentación de numpy</a></p>
+</div>
+<div class="section" id="vistas">
+<h2>Vistas<a class="headerlink" href="#vistas" title="Permalink to this headline">¶</a></h2>
+<p>En las conversiones de datos, cambiamos los datos existentes a un nuevo
+tipo. En una vista, cambiamos el dtype sin cambiar los datos subyacentes.</p>
+<p>Por ejemplo, un array con 4 uint8 puede reinterpretarse como 4 int8
+o también 2 int16 o 1 int32 o 1 float32.</p>
+<p>Podemos forzar un cambio de dtype:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;=i2&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 513, 1027], dtype=int16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>O bien crear una nueva vista</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;=i4&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">y</span><span class="o">.</span><span class="n">flags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([67305985], dtype=int32)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  C_CONTIGUOUS : True
+  F_CONTIGUOUS : True
+  OWNDATA : False
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="como-funcionan-los-indices-strides">
+<h2>Cómo funcionan los índices: <em>strides</em><a class="headerlink" href="#como-funcionan-los-indices-strides" title="Permalink to this headline">¶</a></h2>
+<p>¿Cómo podemos acceder a los elementos del array?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x01\x02\x03\x04\x05\x06\x07\x08\t&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿En qué byte del buffer interno de <code class="docutils literal notranslate"><span class="pre">x</span></code> empieza x[1,2]?</p>
+<p>Se almacena en un atributo llamado <code class="docutils literal notranslate"><span class="pre">strides</span></code>. Indica
+cuántos bytes hay que moverse para alcanzar un cierto elemento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+<span class="n">byte_offset</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">byte_offset</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 1)
+6
+6
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">strides</span></code> combina el tamaño del array dado con <code class="docutils literal notranslate"><span class="pre">shape</span></code> con el tamaño
+del tipo de dato en dtype.</p>
+<p>Parte de las operaciones de indexación y algunas otras como la trasposición
+se puede obtener simplemente cambiando <code class="docutils literal notranslate"><span class="pre">strides</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x.strides=&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y=&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y.strides=&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x.strides= (4,)
+y= [6 5 4 3 2 1]
+y.strides= (-4,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x.strides=&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y.strides=&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x.strides= (400, 40, 4)
+y.strides= (4, 40, 400)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se puede manipular los valores de <code class="docutils literal notranslate"><span class="pre">stride</span></code> de un array para conseguir
+manipulaciones avanzadas, como extraer diagonales, repetir elementos, etc.</p>
+<p>Pueden verse <a class="reference external" href="https://towardsdatascience.com/advanced-numpy-master-stride-tricks-with-25-illustrated-exercises-923a9393ab20">ejemplos aquí</a></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
