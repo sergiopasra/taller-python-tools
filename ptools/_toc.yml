@@ -17,6 +17,7 @@
   chapters:
   - file: cap2/intro
   - file: cap2/datos
+  - file: cap2/base0
   - file: cap2/base
   - file: cap2/ufunc
   - file: cap2/broadcast

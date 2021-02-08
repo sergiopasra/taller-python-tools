@@ -40,7 +40,7 @@ del array. En `typestr` tenemos la información necesaria para interpretar los d
 y `stride` indica cuánto hay que desplazarse para acceder al siguiente elemento. `None`
 indica un array de C contiguo en memoria.
 
-Los datos del array pueden ser compartirdos por diversos objetos o incluso estar definido
+Los datos del array pueden ser compartidos por diversos objetos o incluso estar definido
 de manera externa, por ejemplo
 
 ```{code-cell} ipython3
@@ -69,6 +69,22 @@ Aquí tenemos que los datos no pertenecen a `y` (OWNDATA : False),
 pero que podemos 
 escribir en la variable `y` (`WRITEABLE : True`); además 
  los cambios de `y` se propagan a `x`.
+
+## Atributos y métodos del array
+
+Hemos visto algunos atributos, aunque en las manipulaciones normales rara
+vez se usan. Veremos ahora atributos más interesantes. Para ello definimos
+un array de tres dimensiones. Los tres primeros atributos son el ńumero
+de dimensiones `ndim`, la forma `shape` y el tamaño (número de elementos) `size`.
+
+```{code-cell} ipython3
+x3 = np.ones((3, 4, 5))
+print('x3.ndim=', x3.ndim)
+print('x3.shape=', x3.shape)
+print('x3.size=', x3.size)
+```
+
+Otro atributo importante es `dtype`, del que hablaremos en la siguiente sección.
 
 ## Descriptores de datos
 
