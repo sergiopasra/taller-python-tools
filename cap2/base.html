@@ -49,15 +49,15 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Funciones universales" href="ufunc.html" />
-    <link rel="prev" title="Tipos de datos" href="datos.html" />
+    <link rel="prev" title="Estructura básica" href="base0.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -155,6 +155,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="datos.html">
    Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="base0.html">
+   Estructura básica
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -270,6 +275,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -284,6 +292,11 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#atributos-y-metodos-del-array">
+   Atributos y métodos del array
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descriptores-de-datos">
    Descriptores de datos
@@ -335,7 +348,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7fc8b232cc40&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7fc23dd78c40&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x03\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff&#39;
@@ -351,7 +364,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94602064892960, False),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94224866762624, False),
  &#39;strides&#39;: None,
  &#39;descr&#39;: [(&#39;&#39;, &#39;&lt;i8&#39;)],
  &#39;typestr&#39;: &#39;&lt;i8&#39;,
@@ -365,7 +378,7 @@ memoria asignada.</p>
 del array. En <code class="docutils literal notranslate"><span class="pre">typestr</span></code> tenemos la información necesaria para interpretar los datos
 y <code class="docutils literal notranslate"><span class="pre">stride</span></code> indica cuánto hay que desplazarse para acceder al siguiente elemento. <code class="docutils literal notranslate"><span class="pre">None</span></code>
 indica un array de C contiguo en memoria.</p>
-<p>Los datos del array pueden ser compartirdos por diversos objetos o incluso estar definido
+<p>Los datos del array pueden ser compartidos por diversos objetos o incluso estar definido
 de manera externa, por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -427,6 +440,31 @@ de manera externa, por ejemplo</p>
 pero que podemos
 escribir en la variable <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">WRITEABLE</span> <span class="pre">:</span> <span class="pre">True</span></code>); además
 los cambios de <code class="docutils literal notranslate"><span class="pre">y</span></code> se propagan a <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="section" id="atributos-y-metodos-del-array">
+<h2>Atributos y métodos del array<a class="headerlink" href="#atributos-y-metodos-del-array" title="Permalink to this headline">¶</a></h2>
+<p>Hemos visto algunos atributos, aunque en las manipulaciones normales rara
+vez se usan. Veremos ahora atributos más interesantes. Para ello definimos
+un array de tres dimensiones. Los tres primeros atributos son el ńumero
+de dimensiones <code class="docutils literal notranslate"><span class="pre">ndim</span></code>, la forma <code class="docutils literal notranslate"><span class="pre">shape</span></code> y el tamaño (número de elementos) <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x3.ndim=&#39;</span><span class="p">,</span> <span class="n">x3</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x3.shape=&#39;</span><span class="p">,</span> <span class="n">x3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x3.size=&#39;</span><span class="p">,</span> <span class="n">x3</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x3.ndim= 3
+x3.shape= (3, 4, 5)
+x3.size= 60
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otro atributo importante es <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, del que hablaremos en la siguiente sección.</p>
+</div>
 <div class="section" id="descriptores-de-datos">
 <h2>Descriptores de datos<a class="headerlink" href="#descriptores-de-datos" title="Permalink to this headline">¶</a></h2>
 <p>Hemos visto que numpy utiliza una estructura <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
@@ -656,8 +694,8 @@ manipulaciones avanzadas, como extraer diagonales, repetir elementos, etc.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "sergiopasra/taller-python-tools",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -680,7 +718,7 @@ manipulaciones avanzadas, como extraer diagonales, repetir elementos, etc.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="datos.html" title="previous page">Tipos de datos</a>
+    <a class='left-prev' id="prev-link" href="base0.html" title="previous page">Estructura básica</a>
     <a class='right-next' id="next-link" href="ufunc.html" title="next page">Funciones universales</a>
 
     </div>
