@@ -9,9 +9,14 @@
   - file: cap1/python
   - file: cap1/sec2
   - file: cap1/ide
+  - file: cap1/jupyter
   - file: cap1/Fibonacci
   - file: cap1/magics
   - file: cap1/magicmd
+  - file: cap1/widgets
+  - file: cap1/cfibonacci
+  - file: cap1/jconvert
+  - file: cap1/jremote
 
 - part: Numpy
   chapters:
