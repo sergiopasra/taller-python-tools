@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Números de Fibonnacci &#8212; Taller Python</title>
+    <title>Ejecución remota de cuadernos &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Comándos mágicos" href="magics.html" />
-    <link rel="prev" title="Anatomía de Jupyter" href="jupyter.html" />
+    <link rel="next" title="Numpy" href="../cap2/intro.html" />
+    <link rel="prev" title="Conversión de cuadernos" href="jconvert.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -132,8 +132,8 @@
    Anatomía de Jupyter
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fibonacci.html">
    Números de Fibonnacci
   </a>
  </li>
@@ -162,8 +162,8 @@
    Conversión de cuadernos
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jremote.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Ejecución remota de cuadernos
   </a>
  </li>
@@ -266,9 +266,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/cap1/Fibonacci.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap1/jremote.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -286,30 +286,44 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap1/Fibonacci.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#servidor-de-cuadernos">
+   Servidor de cuadernos.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nbviewer">
+   nbviewer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mybinder">
+   Mybinder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colab">
+   Colab
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyterhub">
+   JupyterHub
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -318,68 +332,56 @@
         
               <div>
                 
-  <div class="section" id="numeros-de-fibonnacci">
-<h1>Números de Fibonnacci<a class="headerlink" href="#numeros-de-fibonnacci" title="Permalink to this headline">¶</a></h1>
-<p>Los números de Fibonnacci siguen la conocida recurrencia:</p>
-<div class="math notranslate nohighlight">
-\[
-F_n = F_{n-1} + F_{n-2}
-\]</div>
-<p>Empezando con 0, 1 obtenemos:</p>
-<div class="math notranslate nohighlight">
-\[
-0, 1, 1, 2, 3, 5, 8, \ldots
-\]</div>
-<p>Esta sucesión tiene algunas propiedades curiosas:</p>
-<ul class="simple">
-<li><p>El MCD de dos números de Fibonacci es otro número de Fibonacci: <span class="math notranslate nohighlight">\(\mathrm{mcd}(F_n, F_m) = F_{\mathrm{mcd}(n, m)}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F^2_{n+1} + F^2_{n} = F_{2n+1}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F_n = \frac{F_{n-2} + F_{n+1}}{2}\)</span></p></li>
-</ul>
-<p><strong>Leonardo de Pisa</strong>, conocido como <strong>Fibonacci</strong> (<em>filius Bonacci</em>) fue un matemático italiano del siglo XII, originario de Pisa.</p>
-<p><a title="Taty2007 / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:Leonardo_Fibonacci.JPG"><img width="256" alt="Leonardo Fibonacci" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Leonardo_Fibonacci.JPG/256px-Leonardo_Fibonacci.JPG"></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
+  <div class="section" id="ejecucion-remota-de-cuadernos">
+<h1>Ejecución remota de cuadernos<a class="headerlink" href="#ejecucion-remota-de-cuadernos" title="Permalink to this headline">¶</a></h1>
+<p>Dada la separación entre el núcleo que ejecuta el código y la aplicación
+web, es relativamente fácil ejecutar el kernel en un equipo y la aplicación web en otro.</p>
+<p>Veremos ahora varios procedimientos.</p>
+<div class="section" id="servidor-de-cuadernos">
+<h2>Servidor de cuadernos.<a class="headerlink" href="#servidor-de-cuadernos" title="Permalink to this headline">¶</a></h2>
+<p>Este método permite acceder a un grupo de cuadernos personales a un solo usuario. No permite a múltiples usuarios acceder al mismo cuaderno.</p>
+<p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html">Notebook Server</a></p>
 </div>
+<div class="section" id="nbviewer">
+<h2>nbviewer<a class="headerlink" href="#nbviewer" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://nbviewer.jupyter.org/">nbviewer</a> es un servicio que pemite visualizar los cuadernos online. Es decir,
+para cada cuaderno público realiza la conversión <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> a HTML. No permite
+ejecutar los cuadernos, solamente visualizarlos:</p>
+<p>Esta página contiene además una gran colección de cuadernos online de diferentes
+materias.</p>
+<p>Por ejemplo, para visualizar el cuaderno cfibonacci.ipynb, nos genera una url de:</p>
+<p>https://nbviewer.jupyter.org/github/sergiopasra/taller-jupyter/blob/master/cuadernos/cfibonacci.ipynb</p>
+<p>Como este cuaderno está alamacenado sin el contenido, no vemos los resultados de las celdas.</p>
 </div>
+<div class="section" id="mybinder">
+<h2>Mybinder<a class="headerlink" href="#mybinder" title="Permalink to this headline">¶</a></h2>
+<p>Es un <a class="reference external" href="https://mybinder.org/">servicio web</a>  que crea contenedores a partir de repositorios git.</p>
+<p>Permite tener hasta 100 usuarios concurrentes, pero cuidado, al ser un servicio
+gratuíto podemos vernos limitados si excedemos el tráfico permitido o el uso
+de CPU.</p>
+<p>Para probar mybinder con este repositorio, basta con seguir el enlace incluído
+en README.md</p>
+<p>Este servicio clona un repositorio. Si este contiene ficheros de datos, estos
+aparecerán tambíen en el binder.</p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Fibonacci number n</span>
-<span class="sd">    </span>
-<span class="sd">    Naive recursive inplementation of Fibonacci number n</span>
-<span class="sd">    Do not use for large numbers.</span>
-<span class="sd">    </span>
-<span class="sd">    First 7 terms of the series:</span>
-<span class="sd">    [0,1,1,2,3,5,8]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
+<div class="section" id="colab">
+<h2>Colab<a class="headerlink" href="#colab" title="Permalink to this headline">¶</a></h2>
+<p>Colaboratory es un servicio de Google construído sobre cuadernos de Python.
+En puridad no es Jupyter, pero ejecuta los cuadernos igualmente.</p>
+<p>https://colab.research.google.com/notebooks/intro.ipynb</p>
+<p>Se pueden ejecutar cuadernos alojados en google drive o en github.</p>
+<p>https://colab.research.google.com/github/sergiopasra/taller-jupyter/blob/master/cuadernos/Configuraciones%20planetarias.ipynb</p>
+<p>Sin embargo, si el cuaderno utiliza recursos externos, hay que utilizar paquetes
+propios de google para acceder a ellos.</p>
+<p>https://colab.research.google.com/notebooks/io.ipynb</p>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">fibs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">fibs</span><span class="p">,</span> <span class="s1">&#39;r*-&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f404de68670&gt;]
-</pre></div>
-</div>
-<img alt="../_images/Fibonacci_3_1.png" src="../_images/Fibonacci_3_1.png" />
-</div>
+<div class="section" id="jupyterhub">
+<h2>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub es la aplicación multiusuario de Jupyter.</p>
+<p>https://jupyter.org/hub</p>
+<p>Está pensada para funcionar usando un orquestador de máquinas virtuales y
+servicios web (Kubernetes con Google Cloud, Azure, AWS, etc).</p>
+<p>También existe una versión ligera que funciona en una sola máquina virtual (The Littlest JupyterHub).</p>
 </div>
 </div>
 
@@ -411,8 +413,8 @@ F_n = F_{n-1} + F_{n-2}
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="jupyter.html" title="previous page">Anatomía de Jupyter</a>
-    <a class='right-next' id="next-link" href="magics.html" title="next page">Comándos mágicos</a>
+    <a class='left-prev' id="prev-link" href="jconvert.html" title="previous page">Conversión de cuadernos</a>
+    <a class='right-next' id="next-link" href="../cap2/intro.html" title="next page">Numpy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

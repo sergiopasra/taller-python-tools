@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Números de Fibonnacci &#8212; Taller Python</title>
+    <title>Anatomía de Jupyter &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Comándos mágicos" href="magics.html" />
-    <link rel="prev" title="Anatomía de Jupyter" href="jupyter.html" />
+    <link rel="next" title="Números de Fibonnacci" href="Fibonacci.html" />
+    <link rel="prev" title="Entornos de desarrollo" href="ide.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -127,13 +127,13 @@
    Entornos de desarrollo
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jupyter.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Anatomía de Jupyter
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fibonacci.html">
    Números de Fibonnacci
   </a>
  </li>
@@ -266,9 +266,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/cap1/Fibonacci.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap1/jupyter.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -286,30 +286,39 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap1/Fibonacci.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frontend-backend">
+   Frontend / Backend
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#barras-y-menus">
+   Barras y menús
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#celdas">
+   Celdas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown">
+   Markdown
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -318,68 +327,59 @@
         
               <div>
                 
-  <div class="section" id="numeros-de-fibonnacci">
-<h1>Números de Fibonnacci<a class="headerlink" href="#numeros-de-fibonnacci" title="Permalink to this headline">¶</a></h1>
-<p>Los números de Fibonnacci siguen la conocida recurrencia:</p>
-<div class="math notranslate nohighlight">
-\[
-F_n = F_{n-1} + F_{n-2}
-\]</div>
-<p>Empezando con 0, 1 obtenemos:</p>
-<div class="math notranslate nohighlight">
-\[
-0, 1, 1, 2, 3, 5, 8, \ldots
-\]</div>
-<p>Esta sucesión tiene algunas propiedades curiosas:</p>
+  <div class="section" id="anatomia-de-jupyter">
+<h1>Anatomía de Jupyter<a class="headerlink" href="#anatomia-de-jupyter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="frontend-backend">
+<h2>Frontend / Backend<a class="headerlink" href="#frontend-backend" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter es una aplicación que se separa en dos partes la ejecución de código.
+El <em>frontend</em> es el navegador y se encarga de mostrar texto que acompaña
+al código, el código en sí mismo, así como el resultado de los
+cálculos. Estos pueden ser numéricos o gráficos.</p>
+<p>El texto y el código se organizan en <em>celdas</em>. Cada celda puede ejecutarse por
+separado y potencialemente en cualquier orden.</p>
+<p>El contenido de las celdas, así como los resultados, se almacenan en ficheros
+con extensión <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>, denominados <strong>cuadernos</strong>. Internamente, los cuadernos
+son ficheros <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> y utilizan <em>base64</em>
+para almacenar resultdos como imágenes o videos. (Los cuadernos incrementan
+su tamaño al ejecutarlos).</p>
+<p>El <em>backend</em> o kernel se encarga de realizar los cálculos. Diferentes
+kernels trabajan en diferentes lenguajes. Nosotros veremos ejemplos
+con el kernel Python y el kernel R.</p>
+<p><a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">Lista de kernels disponibles</a></p>
+</div>
+<div class="section" id="barras-y-menus">
+<h2>Barras y menús<a class="headerlink" href="#barras-y-menus" title="Permalink to this headline">¶</a></h2>
+<p>Cuando arrancamos Jupyter con el comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(taller) $ jupyter notebook
+</pre></div>
+</div>
+<p>automáticamente arranca un navegador con el tablero (<strong>dashboard</strong>).
+Aquí veremos los ficheros en el directorio donde hayamos arrancado (<em>Files</em>),
+información sobre los cuadernos y terminales que tengamos arrancados (<em>Running</em>)e información sobre ejecuciones en paralelo (<em>Clusters</em>).</p>
+<p>La solapa <em>Files</em> permite borrar o renombrar ficheros.</p>
+<p>En la parte superior derecha (<em>New</em>) podemos arrancar terminales y cuadernos
+de diferentes tipos.</p>
+</div>
+<div class="section" id="celdas">
+<h2>Celdas<a class="headerlink" href="#celdas" title="Permalink to this headline">¶</a></h2>
+<p>Las celdas contienen código ejecutable.</p>
+<p>Aparte de código en Python, el kernel tiene capacidades adicionales:</p>
 <ul class="simple">
-<li><p>El MCD de dos números de Fibonacci es otro número de Fibonacci: <span class="math notranslate nohighlight">\(\mathrm{mcd}(F_n, F_m) = F_{\mathrm{mcd}(n, m)}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F^2_{n+1} + F^2_{n} = F_{2n+1}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F_n = \frac{F_{n-2} + F_{n+1}}{2}\)</span></p></li>
+<li><p>Almacena todas las entradas de las celdas en la variable <code class="docutils literal notranslate"><span class="pre">In</span></code></p></li>
+<li><p>Las salidas en la variable <code class="docutils literal notranslate"><span class="pre">Out</span></code></p></li>
+<li><p>Muestra información sobre los objectos con <code class="docutils literal notranslate"><span class="pre">object_name?</span></code></p></li>
+<li><p>Más información <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/tutorial.html">en la ayuda de IPython</a></p></li>
 </ul>
-<p><strong>Leonardo de Pisa</strong>, conocido como <strong>Fibonacci</strong> (<em>filius Bonacci</em>) fue un matemático italiano del siglo XII, originario de Pisa.</p>
-<p><a title="Taty2007 / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:Leonardo_Fibonacci.JPG"><img width="256" alt="Leonardo Fibonacci" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Leonardo_Fibonacci.JPG/256px-Leonardo_Fibonacci.JPG"></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Fibonacci number n</span>
-<span class="sd">    </span>
-<span class="sd">    Naive recursive inplementation of Fibonacci number n</span>
-<span class="sd">    Do not use for large numbers.</span>
-<span class="sd">    </span>
-<span class="sd">    First 7 terms of the series:</span>
-<span class="sd">    [0,1,1,2,3,5,8]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">fibs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">fibs</span><span class="p">,</span> <span class="s1">&#39;r*-&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f404de68670&gt;]
-</pre></div>
-</div>
-<img alt="../_images/Fibonacci_3_1.png" src="../_images/Fibonacci_3_1.png" />
-</div>
+<div class="section" id="markdown">
+<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>Markdown es un lenguage de texto plano que puede convertirse en estructurado
+(HTML). Existen versiones ligeramente diferentes del lenguaje. La que
+utiliza Jupyter es la versión de Github</p>
+<p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">En la ayuda de Jupyter</a></p>
+<p><a class="reference external" href="https://guides.github.com/features/mastering-markdown/">Guía de Github</a></p>
+<p>la versión de markdown en Jupyter permite escribir ecuaciones en latex, usando
+el escape <span class="math notranslate nohighlight">\( \)</span> para ecuaciones en el texto y $<span class="math notranslate nohighlight">\( \)</span>$  para ecuaciones en su propio bloque.</p>
 </div>
 </div>
 
@@ -411,8 +411,8 @@ F_n = F_{n-1} + F_{n-2}
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="jupyter.html" title="previous page">Anatomía de Jupyter</a>
-    <a class='right-next' id="next-link" href="magics.html" title="next page">Comándos mágicos</a>
+    <a class='left-prev' id="prev-link" href="ide.html" title="previous page">Entornos de desarrollo</a>
+    <a class='right-next' id="next-link" href="Fibonacci.html" title="next page">Números de Fibonnacci</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
