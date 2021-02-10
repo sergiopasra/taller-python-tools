@@ -37,3 +37,4 @@
   - file: cap3/disp
   - file: cap3/error
   - file: cap3/estilos
+  - file: cap3/plotly
