@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gráficos de puntos &#8212; Taller Python</title>
+    <title>Plotly &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visualización de errores" href="error.html" />
-    <link rel="prev" title="Gráficos de línea" href="linea.html" />
+    <link rel="prev" title="Uso de estilos" href="estilos.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -233,13 +232,13 @@
    Gráficos de línea
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="disp.html">
    Gráficos de puntos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#graficos-con-scatter">
+  <a class="reference internal" href="disp.html#graficos-con-scatter">
    Gráficos con
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -258,8 +257,8 @@
    Uso de estilos
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plotly.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Plotly
   </a>
  </li>
@@ -301,14 +300,11 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/cap3/disp.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/cap3/disp.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap3/plotly.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -331,7 +327,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap3/disp.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap3/plotly.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -356,19 +352,9 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Gráficos de puntos
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#graficos-con-scatter">
-   Gráficos con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     scatter
-    </span>
-   </code>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elementos">
+   Elementos
   </a>
  </li>
 </ul>
@@ -382,105 +368,93 @@
         
               <div>
                 
-  <div class="section" id="graficos-de-puntos">
-<h1>Gráficos de puntos<a class="headerlink" href="#graficos-de-puntos" title="Permalink to this headline">¶</a></h1>
-<p>Podemos producir gráficos de puntos (<em>scatter</em>) usando <code class="docutils literal notranslate"><span class="pre">plot</span></code>
-y evitando que los puntos se unan con líneas.</p>
+  <div class="section" id="plotly">
+<h1>Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">¶</a></h1>
+<p>Los gráficos que genera matplotlib son estáticos, han sido
+diseñados para ser una imagen en un documento. Sin embargo,
+a veces sería necesario poder interaccionar con el gráfico
+para extraer toda la información que contiene.</p>
+<p>Un paquete que permite generar gráficos interactivos es
+<a class="reference external" href="https://plot.ly/python/">plotly</a>, vamos a ver someramente algunas
+de sus características.</p>
+<div class="section" id="elementos">
+<h2>Elementos<a class="headerlink" href="#elementos" title="Permalink to this headline">¶</a></h2>
+<p>Plotly no está basado en matplotlib y por lo tanto usa una terminología un
+poco diferente. Los elementos de un gráfico son:</p>
+<ul class="simple">
+<li><p>Data: una lista de <strong>trazas</strong> que vamos a representar</p></li>
+<li><p>Trace: los datos más el tipo de gráfico junto con especificaciones sobre el gráfico</p></li>
+<li><p>Layout: elementos de la figura no relacionados con el gráfico</p></li>
+<li><p>Figure: contiene toda la figura</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/disp_2_0.png" src="../_images/disp_2_0.png" />
-</div>
-</div>
-<p>Este tercer argumento es el marcador, que se puede abreviar con un código</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;marker=&#39;</span><span class="si">{</span><span class="n">marker</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/disp_4_0.png" src="../_images/disp_4_0.png" />
-</div>
-</div>
-<p>Se pueden utilizar, además, argumentos de <code class="docutils literal notranslate"><span class="pre">plot</span></code> para controlar
-aún más la disposición de los puntos</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
-         <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-         <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
-         <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
-         <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/disp_6_0.png" src="../_images/disp_6_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="graficos-con-scatter">
-<h1>Gráficos con <code class="docutils literal notranslate"><span class="pre">scatter</span></code><a class="headerlink" href="#graficos-con-scatter" title="Permalink to this headline">¶</a></h1>
-<p>Existe otro método más potente, con un interfaz similar, que es la función
-<code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/disp_8_0.png" src="../_images/disp_8_0.png" />
-</div>
-</div>
-<p>La diferencia fundamental entre <code class="docutils literal notranslate"><span class="pre">scatter</span></code> y <code class="docutils literal notranslate"><span class="pre">plot</span></code> es que en el primero
-se pueden controlar las propiedades de cada punto (tamaño, color)
-en función de los valores de los propios datos.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">sizes</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>  <span class="c1"># show color scale</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+
+<span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span>
+<span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Carga de datos</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv&#39;</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/disp_10_0.png" src="../_images/disp_10_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">cf4d1603208b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
+</pre></div>
 </div>
 </div>
-<p>¿Cómo se comparan estas dos funciones, <code class="docutils literal notranslate"><span class="pre">plot</span></code> y <code class="docutils literal notranslate"><span class="pre">scatter</span></code>?
-Para cantidades pequeñas de datos, ambas son equivalentes. Sin embargo
-para conjuntos de datos grandes, <code class="docutils literal notranslate"><span class="pre">scatter</span></code> es más lento
-porque cada punto que escribe tiene propiedades potencialmente diferentes.
-Para <code class="docutils literal notranslate"><span class="pre">plot</span></code>, todos los puntos son iguales.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">],</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">],</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Sépalos&#39;</span>
+<span class="p">)</span>
+
+<span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">],</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Pétalos&#39;</span>
+<span class="p">)</span>
+<span class="c1"># Los datos son una lista de trazas</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
+
+<span class="c1"># Un layout es un diccionario con información</span>
+<span class="c1"># sobre algunos elementos de la figura</span>
+<span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> 
+    <span class="n">title</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Iris&quot;</span> <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Creamos la figura y dibujamos</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+<span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -511,8 +485,7 @@ Para <code class="docutils literal notranslate"><span class="pre">plot</span></c
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="linea.html" title="previous page">Gráficos de línea</a>
-    <a class='right-next' id="next-link" href="error.html" title="next page">Visualización de errores</a>
+    <a class='left-prev' id="prev-link" href="estilos.html" title="previous page">Uso de estilos</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
