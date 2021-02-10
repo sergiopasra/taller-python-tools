@@ -13,9 +13,9 @@
   - file: cap1/Fibonacci
   - file: cap1/magics
   - file: cap1/magicmd
-  - file: cap1/widgets
+#  - file: cap1/widgets
   - file: cap1/cfibonacci
-  - file: cap1/jconvert
+#  - file: cap1/jconvert
   - file: cap1/jremote
 
 - part: Numpy
@@ -33,3 +33,7 @@
 - part: Matplotlib
   chapters:
   - file: cap3/intro
+  - file: cap3/linea
+  - file: cap3/disp
+  - file: cap3/error
+  - file: cap3/estilos
