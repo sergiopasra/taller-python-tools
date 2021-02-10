@@ -30,3 +30,6 @@
   - file: cap2/indexing
   - file: cap2/structured
 
+- part: Matplotlib
+  chapters:
+  - file: cap3/intro
