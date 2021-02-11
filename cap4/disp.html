@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualización de errores &#8212; Taller Python</title>
+    <title>Gráficos de puntos &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Uso de estilos" href="estilos.html" />
-    <link rel="prev" title="Gráficos de puntos" href="disp.html" />
+    <link rel="next" title="Visualización de errores" href="error.html" />
+    <link rel="prev" title="Gráficos de línea" href="linea.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -219,6 +219,18 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap3/intro.html">
+   Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Matplotlib
  </span>
 </p>
@@ -233,13 +245,13 @@
    Gráficos de línea
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="disp.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Gráficos de puntos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="disp.html#graficos-con-scatter">
+  <a class="reference internal" href="#graficos-con-scatter">
    Gráficos con
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -248,19 +260,14 @@
    </code>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="error.html">
    Visualización de errores
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="estilos.html">
    Uso de estilos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plotly.html">
-   Plotly
   </a>
  </li>
 </ul>
@@ -302,11 +309,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/cap3/error.ipynb"><button type="button"
+            href="../_sources/cap4/disp.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/cap3/error.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/cap4/disp.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -331,7 +338,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap3/error.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap4/disp.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -351,6 +358,30 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Gráficos de puntos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficos-con-scatter">
+   Gráficos con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scatter
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -358,9 +389,10 @@
         
               <div>
                 
-  <div class="section" id="visualizacion-de-errores">
-<h1>Visualización de errores<a class="headerlink" href="#visualizacion-de-errores" title="Permalink to this headline">¶</a></h1>
-<p>Matplotlib cuenta con un función básica para mostrar barras de error</p>
+  <div class="section" id="graficos-de-puntos">
+<h1>Gráficos de puntos<a class="headerlink" href="#graficos-de-puntos" title="Permalink to this headline">¶</a></h1>
+<p>Podemos producir gráficos de puntos (<em>scatter</em>) usando <code class="docutils literal notranslate"><span class="pre">plot</span></code>
+y evitando que los puntos se unan con líneas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
@@ -372,38 +404,90 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npoints</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">dy</span> <span class="o">=</span> <span class="mf">0.8</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">npoints</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.k&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/error_2_0.png" src="../_images/error_2_0.png" />
+<img alt="../_images/disp_2_0.png" src="../_images/disp_2_0.png" />
 </div>
 </div>
-<p>El argumento <code class="docutils literal notranslate"><span class="pre">fmt</span></code> es un código que controla cómo aparecen
-las líneas y puntos, es igual al que se utiliza en <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
-<p>La función <code class="docutils literal notranslate"><span class="pre">plt.errorbar</span></code> tiene una buena cantidad de argumentos
-para afinar el formato de la barra. POr ejemplo:</p>
+<p>Este tercer argumento es el marcador, que se puede abreviar con un código</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> 
-    <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;marker=&#39;</span><span class="si">{</span><span class="n">marker</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+<img alt="../_images/disp_4_0.png" src="../_images/disp_4_0.png" />
+</div>
+</div>
+<p>Se pueden utilizar, además, argumentos de <code class="docutils literal notranslate"><span class="pre">plot</span></code> para controlar
+aún más la disposición de los puntos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+         <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+         <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+         <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+         <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/error_4_1.png" src="../_images/error_4_1.png" />
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/disp_6_0.png" src="../_images/disp_6_0.png" />
 </div>
 </div>
-<p>También pueden incluirse barras horizontales con <code class="docutils literal notranslate"><span class="pre">xerr</span></code>, solo con un lado
-u otras variantes.</p>
+</div>
+<div class="section" id="graficos-con-scatter">
+<h1>Gráficos con <code class="docutils literal notranslate"><span class="pre">scatter</span></code><a class="headerlink" href="#graficos-con-scatter" title="Permalink to this headline">¶</a></h1>
+<p>Existe otro método más potente, con un interfaz similar, que es la función
+<code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/disp_8_0.png" src="../_images/disp_8_0.png" />
+</div>
+</div>
+<p>La diferencia fundamental entre <code class="docutils literal notranslate"><span class="pre">scatter</span></code> y <code class="docutils literal notranslate"><span class="pre">plot</span></code> es que en el primero
+se pueden controlar las propiedades de cada punto (tamaño, color)
+en función de los valores de los propios datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>  <span class="c1"># show color scale</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/disp_10_0.png" src="../_images/disp_10_0.png" />
+</div>
+</div>
+<p>¿Cómo se comparan estas dos funciones, <code class="docutils literal notranslate"><span class="pre">plot</span></code> y <code class="docutils literal notranslate"><span class="pre">scatter</span></code>?
+Para cantidades pequeñas de datos, ambas son equivalentes. Sin embargo
+para conjuntos de datos grandes, <code class="docutils literal notranslate"><span class="pre">scatter</span></code> es más lento
+porque cada punto que escribe tiene propiedades potencialmente diferentes.
+Para <code class="docutils literal notranslate"><span class="pre">plot</span></code>, todos los puntos son iguales.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -419,7 +503,7 @@ u otras variantes.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./cap3"
+            path: "./cap4"
         },
         predefinedOutput: true
     }
@@ -434,8 +518,8 @@ u otras variantes.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="disp.html" title="previous page">Gráficos de puntos</a>
-    <a class='right-next' id="next-link" href="estilos.html" title="next page">Uso de estilos</a>
+    <a class='left-prev' id="prev-link" href="linea.html" title="previous page">Gráficos de línea</a>
+    <a class='right-next' id="next-link" href="error.html" title="next page">Visualización de errores</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matplotlib &#8212; Taller Python</title>
+    <title>Pandas &#8212; Taller Python</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Gráficos de línea" href="linea.html" />
+    <link rel="next" title="Matplotlib" href="../cap4/intro.html" />
     <link rel="prev" title="Arrays estructurados" href="../cap2/structured.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -219,27 +219,39 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Matplotlib
+  Pandas
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap4/intro.html">
    Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="linea.html">
+  <a class="reference internal" href="../cap4/linea.html">
    Gráficos de línea
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="disp.html">
+  <a class="reference internal" href="../cap4/disp.html">
    Gráficos de puntos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="disp.html#graficos-con-scatter">
+  <a class="reference internal" href="../cap4/disp.html#graficos-con-scatter">
    Gráficos con
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -249,18 +261,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="error.html">
+  <a class="reference internal" href="../cap4/error.html">
    Visualización de errores
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="estilos.html">
+  <a class="reference internal" href="../cap4/estilos.html">
    Uso de estilos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plotly.html">
-   Plotly
   </a>
  </li>
 </ul>
@@ -351,30 +358,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manejando-matplotlib">
-   Manejando matplotlib
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#como-mostrar-los-graficos">
-   Cómo mostrar los gráficos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ficheros-graficos">
-   Ficheros gráficos
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -382,190 +365,28 @@
         
               <div>
                 
-  <div class="section" id="matplotlib">
-<h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h1>
-<p>Matplotlib es un paquete de visualización en Python. Fue creado
-entorno a 2002, originalmente con la idea de tener un método de
-insertar gráficas de gnuplot en IPython con un interfaz basado en
-Matlab. Finalmente acabó desarrollándose como un paquete gráfico
-independiente, que todavía conserva parte del interfaz estilo matlab.</p>
-<p>Uno de los fuertes de matplotlib es que es multiplataforma y que además
-permite cambiar el interfaz gráfico de salida fácilmente, de ficheros
-de imagen a consolas gráficas de QT, Tk u otra biblioteca de
-componentes gráficos.</p>
-<p>El interfaz de matplotlib es muy extenso y permite muchísimos
-estilos gráficos. Por otro lado, una queja común de matplotlib
-es que los gráficos por defecto eran <em>feos</em>. En las versiones 2 y 3
-(la actual en 2021) se procedió a mejorar los valores por defecto
-y ahora el aspecto es bastante mejor. Además se desarrolló
-más el interfaz para facilitar la aplicación de <strong>estilos</strong>.</p>
-<p>Entre los paquetes gráficos disponibles, hay una buena cantidad
-que derivan de o se basan en matplotlib, como seaborn o también
-la extensión gráfica de pandas. Veremos también un ejemplo
-de otro paquete con una filosofía diferente, plotly.</p>
-<div class="section" id="manejando-matplotlib">
-<h2>Manejando matplotlib<a class="headerlink" href="#manejando-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>Estos son los alias habituales de matplotlib.
-Es habitual utilizar funciones de estos dos módulos</p>
+  <div class="section" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p>En la sección anterior ya vimos como numpy proporciona soporte
+para arrays de con tipos homogéneos. En el último apartado
+vimos los <em>arrays estructurados</em>, un tipo de array para tratar
+con datos tabulares. Sin embargo, los propios desarrolladores
+de numpy indican que esta estructura solo es apropiada para los casos
+de uso más sencillos.</p>
+<p>Pandas es un paquete construido sobre numpy que proporciona
+un tipo de datos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Este tipo es, básicamente, un array
+multidimensional heterogéneo, con capacidad de manejar datos faltantes
+y con nombres para filas y columnas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Matplotlib proporciona dos interfaces para generar gráficas.</p>
-<p>El primero es un sistema orientado a objetos, con una estructura
-en la cada figura contiene un conjunto de ejes y en cada eje
-podemos incluir objetos gráficos. En este sistema los componentes
-gráficos se manejan de manera explícita.</p>
-<p>El sistema está basado en funciones, estilo matlab, y está
-pensado para el trabajo interactivo. Estas funciones están en
-el módulo <code class="docutils literal notranslate"><span class="pre">plt</span></code>. Cuando trabajamos con este interfaz, matplotlib
-almacena internamente los elementos gráficos que utilizamos
-y aplica las funciones sobre los últimos que hemos generado.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Gráfica con el estilo OO. La figura y cada grupo
-de ejes son objetos y operamos sobre ellos.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fig</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">axs</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;matplotlib.figure.Figure&#39;&gt;
-&lt;class &#39;numpy.ndarray&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.2.2&#39;
 </pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f667b728a00&gt;]
-</pre></div>
-</div>
-<img alt="../_images/intro_5_2.png" src="../_images/intro_5_2.png" />
-</div>
-</div>
-<p>La misma gráfica con el estilo matlab. La figura y cada grupo
-de ejes existen pero de manera implícita. <code class="docutils literal notranslate"><span class="pre">plt</span></code>
-lleva la cuenta de en qué objeto <code class="docutils literal notranslate"><span class="pre">Axis</span></code> estamos pintando
-y diferentes funciones van cambiando entre ellas.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># (fila, columna, eje gráfico 1)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="c1"># segundo panel</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># (fila, columna, eje gráfico 2)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/intro_7_0.png" src="../_images/intro_7_0.png" />
-</div>
-</div>
-<p>Si estamos utilizando este segundo interfaz, siempre podemos
-acceder a los ejes o a la figura usando las funciones <code class="docutils literal notranslate"><span class="pre">gca()</span></code>
-o <code class="docutils literal notranslate"><span class="pre">gcf()</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># (fila, columna, eje gráfico 1)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eje es &#39;</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
-<span class="c1"># segundo panel</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># (fila, columna, eje gráfico 2)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eje es  AxesSubplot(0.125,0.536818;0.775x0.343182)
-</pre></div>
-</div>
-<img alt="../_images/intro_9_1.png" src="../_images/intro_9_1.png" />
-</div>
-</div>
-<p>El estilo que usemos es cuestión de gustos. Normalmente es más
-práctico utilizar el estilo OO cuando estamos realizando un
-programa o un paquete y también cuando la figura es compleja.
-Cuando trabajamos interactivamente puede ser más eficiente
-el estilo matlab.</p>
-</div>
-<div class="section" id="como-mostrar-los-graficos">
-<h2>Cómo mostrar los gráficos<a class="headerlink" href="#como-mostrar-los-graficos" title="Permalink to this headline">¶</a></h2>
-<p>Si tecleamos los ejemplos de código anteriores en una consola de python
-o ipython, no obtendremos ninguna gráfica. El comportamiento
-de un cuaderno y los interfaces es de consola es diferente.</p>
-<p>En principio, para indicar que una gráfica está terminada y está
-lista para mostrarse hay que utilizar la función <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. Esta
-función interactúa con el <strong>backend</strong> gráfico y le indica que el dibujo
-puede realizarse.</p>
-<p>Si en lugar de estar trabajando con la consola de python o en un
-programa, estamos en ipython, podemos hacerlo algo más fácil
-utilizando un comando mágico: <code class="docutils literal notranslate"><span class="pre">%matplotlib</span></code></p>
-<p>Si cargamos este comando <strong>antes</strong> de importar <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>,
-las gráficas se muestran según las vamos haciendo, sin necesidad de utilizar
-<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. Reutilizamos la ventana gráfica abierta (que puede borrarse con
-<code class="docutils literal notranslate"><span class="pre">plt.clf()</span></code> o <code class="docutils literal notranslate"><span class="pre">plt.cla()</span></code>. Algunos cambios (por ejemplo, cambiar el grosor de
-las líneas) requiren redibujar con <code class="docutils literal notranslate"><span class="pre">plt.draw()</span></code></p>
-<p>Por último, trabajando en jupyter, el modo por defecto es <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>
-en el que las gráficas se muestran dentro del cuaderno tras cada celda.</p>
-<p>Existe también otro modo en desarrollo <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, que permite
-cierta interacción con las gráficas.</p>
-</div>
-<div class="section" id="ficheros-graficos">
-<h2>Ficheros gráficos<a class="headerlink" href="#ficheros-graficos" title="Permalink to this headline">¶</a></h2>
-<p>Matplotlib permite guardar las figuras en una gran cantidad de formatos.
-La función que lo hace es <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> o bien el método <code class="docutils literal notranslate"><span class="pre">.savefig()</span></code>
-de un objeto figura que exista.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;fig1.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/intro_11_0.png" src="../_images/intro_11_0.png" />
-</div>
-</div>
-<p>El formato de salida se infiere de la extensión del fichero que utilicemos.
-Podemos ver una lista de opciones disponibles con:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">get_supported_filetypes</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;eps&#39;: &#39;Encapsulated Postscript&#39;,
- &#39;jpg&#39;: &#39;Joint Photographic Experts Group&#39;,
- &#39;jpeg&#39;: &#39;Joint Photographic Experts Group&#39;,
- &#39;pdf&#39;: &#39;Portable Document Format&#39;,
- &#39;pgf&#39;: &#39;PGF code for LaTeX&#39;,
- &#39;png&#39;: &#39;Portable Network Graphics&#39;,
- &#39;ps&#39;: &#39;Postscript&#39;,
- &#39;raw&#39;: &#39;Raw RGBA bitmap&#39;,
- &#39;rgba&#39;: &#39;Raw RGBA bitmap&#39;,
- &#39;svg&#39;: &#39;Scalable Vector Graphics&#39;,
- &#39;svgz&#39;: &#39;Scalable Vector Graphics&#39;,
- &#39;tif&#39;: &#39;Tagged Image File Format&#39;,
- &#39;tiff&#39;: &#39;Tagged Image File Format&#39;}
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -600,7 +421,7 @@ Podemos ver una lista de opciones disponibles con:</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../cap2/structured.html" title="previous page">Arrays estructurados</a>
-    <a class='right-next' id="next-link" href="linea.html" title="next page">Gráficos de línea</a>
+    <a class='right-next' id="next-link" href="../cap4/intro.html" title="next page">Matplotlib</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
