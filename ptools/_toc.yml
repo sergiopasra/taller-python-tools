@@ -30,11 +30,15 @@
   - file: cap2/indexing
   - file: cap2/structured
 
-- part: Matplotlib
+- part: Pandas
   chapters:
   - file: cap3/intro
-  - file: cap3/linea
-  - file: cap3/disp
-  - file: cap3/error
-  - file: cap3/estilos
-  - file: cap3/plotly
+
+- part: Matplotlib
+  chapters:
+  - file: cap4/intro
+  - file: cap4/linea
+  - file: cap4/disp
+  - file: cap4/error
+  - file: cap4/estilos
+#  - file: cap4/plotly
