@@ -5,14 +5,12 @@
 
 * Python, instalación, entornos, paquetes y cuadernos de Jupyter
 * Manejo de arrays con numpy
-* Figuras y gráficos interactivos con matplotlib y plotly
-* Manejo de datos tabulares con Pandas
-* Manejo de unidades físicas con astropy
+* ïndices con Pandas
 
 ## Instalación de paquetes
 
-El taller require versiones actualizadas de jupyter, numpy, pandas, matplotlib,
-plotly y astropy
+El taller require versiones actualizadas de jupyter, numpy, pandas, matplotlib
+y astropy
 
 Para evitar problemas de compatibilidad se recomienda utilizar un entorno
 python aislado, que se puede crear con **pip** o con **conda**
