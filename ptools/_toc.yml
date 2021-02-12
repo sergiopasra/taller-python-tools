@@ -33,12 +33,4 @@
 - part: Pandas
   chapters:
   - file: cap3/intro
-
-- part: Matplotlib
-  chapters:
-  - file: cap4/intro
-  - file: cap4/linea
-  - file: cap4/disp
-  - file: cap4/error
-  - file: cap4/estilos
-#  - file: cap4/plotly
+  - file: cap3/indices
