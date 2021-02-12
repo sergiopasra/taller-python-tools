@@ -1,0 +1,1678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Índices y selección &#8212; Taller Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Pandas" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Taller Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Instalación
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install.html">
+   Taller de análisis de datos con Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python y Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/sec2.html">
+   Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/ide.html">
+   Entornos de desarrollo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/jupyter.html">
+   Anatomía de Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/Fibonacci.html">
+   Números de Fibonnacci
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magics.html">
+   Comándos mágicos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/magicmd.html">
+   Magic commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/cfibonacci.html">
+   Números de Fibonnacci complejos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap1/jremote.html">
+   Ejecución remota de cuadernos
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Numpy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/intro.html">
+   Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/datos.html">
+   Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/base0.html">
+   Estructura básica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/base.html">
+   Estructura de un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ndarray
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/ufunc.html">
+   Funciones universales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/broadcast.html">
+   <em>
+    Broadcasting
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/mask.html">
+   Comparaciones y máscaras booleanas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/indexing.html">
+   Uso avanzado de índices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cap2/structured.html">
+   Arrays estructurados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html#tipos-de-datos">
+   Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Índices y selección
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#seleccion-de-datos-en-series">
+   Selección de datos en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Series
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#seleccion-de-datos-en-dataframe">
+   Selección de datos en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/cap3/indices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/cap3/indices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sergiopasra/taller-python-tools/main?urlpath=tree/ptools/cap3/indices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Índices y selección
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seleccion-de-datos-en-series">
+   Selección de datos en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Series
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-diccionario">
+     Como diccionario
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-array">
+     Como array
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seleccion-de-datos-en-dataframe">
+   Selección de datos en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-un-diccionario">
+     Como un diccionario
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-un-array">
+     Como un array
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convenciones-sobre-el-uso-de">
+     Convenciones sobre el uso de
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       []
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="indices-y-seleccion">
+<h1>Índices y selección<a class="headerlink" href="#indices-y-seleccion" title="Permalink to this headline">¶</a></h1>
+<p>Ya hemos visto los diferentes métodos de indexación para arrays de numpy.
+Hay métodos similares para acceder y modificar valores en <code class="docutils literal notranslate"><span class="pre">Series</span></code>
+y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, aunque es conveniente estudiarlos con detalle para ver
+las diferencias.</p>
+</div>
+<div class="section" id="seleccion-de-datos-en-series">
+<h1>Selección de datos en <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#seleccion-de-datos-en-series" title="Permalink to this headline">¶</a></h1>
+<p>Vamos a proseguir con la analogía con los arrays y los diccionarios para
+estudiar el acceso a los datos.</p>
+<div class="section" id="como-diccionario">
+<h2>Como diccionario<a class="headerlink" href="#como-diccionario" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                 <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -1.0
+b   -0.5
+c    0.0
+d    0.5
+e    1.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos acceder también a más funcionalidades de los diccionarios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;d&#39;</span> <span class="ow">in</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hay algunas diferencias, <code class="docutils literal notranslate"><span class="pre">values()</span></code> no funciona, pero <code class="docutils literal notranslate"><span class="pre">values</span></code> sí (y devuelve
+un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>). Igual que en un diccionario, <code class="docutils literal notranslate"><span class="pre">items()</span></code> devuelve un iterador:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;zip object at 0x7f14dfce1180&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;a&#39;, -1.0), (&#39;b&#39;, -0.5), (&#39;c&#39;, 0.0), (&#39;d&#39;, 0.5), (&#39;e&#39;, 1.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los objetos <code class="docutils literal notranslate"><span class="pre">Series</span></code> se pueden modificar sobre la marcha, igual que los
+diccionarios, usando la asignación para ello:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -1.0
+b   -0.5
+c    0.0
+d    0.5
+e    1.0
+f    1.5
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="como-array">
+<h2>Como array<a class="headerlink" href="#como-array" title="Permalink to this headline">¶</a></h2>
+<p>Aquí podemos utilizar los mismos mecanismos que con los arrays de numpy
+(con una pequeña sorpresa)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando el operador : (slicing)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -1.0
+b   -0.5
+c    0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando el operador : (slicing)</span>
+<span class="c1"># pero con un índice entero implícito</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -1.0
+b   -0.5
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># máscaras</span>
+<span class="n">data</span><span class="p">[</span> <span class="p">(</span><span class="n">data</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b   -0.5
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># arrays de índices (fancy indexing)</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e    1.0
+a   -1.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como vemos, hay una fuente potencial de confusión con el uso de <code class="docutils literal notranslate"><span class="pre">:</span></code>.
+Puede utilizarse con los objetos de <code class="docutils literal notranslate"><span class="pre">index</span></code>, en este caso cadenas,
+y entonces <strong>incluye el último elemento</strong>.</p>
+<p>También puede utilizar con el índice entero implícito (el que tendría
+si fuera un array de numpy) en cuyo caso <strong>no incluye el último elemento</strong>.</p>
+<p>¿Qué sucede si estamos usando un índice entero? En ese caso, pandas
+usa el índice explícito para indexar y el implícito para recortar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    a
+3    b
+5    c
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice explícito para indexar</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice implícito con slice</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    b
+5    c
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como este comportamiento puede inducir a confusión, pandas proporciona
+unos atributos de los objetos <code class="docutils literal notranslate"><span class="pre">Series</span></code> que nos permiten exponer
+cuál de los dos mecanismos queremos.</p>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">loc</span></code> permite acceder con los <strong>índices explícitos</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice explícito para indexar</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice explícito con slice</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    a
+3    b
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">iloc</span></code> permite acceder con los <strong>índices implícitos</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice implícito para indexar</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Índice implícito con slice</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    a
+3    b
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existe un tercer atributo, <code class="docutils literal notranslate"><span class="pre">ix</span></code>, pero ha sido marcado para eliminación
+a partir de pandas 0.20.1 y se prefiera utilizar <code class="docutils literal notranslate"><span class="pre">iloc</span></code> y <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
+</div>
+</div>
+<div class="section" id="seleccion-de-datos-en-dataframe">
+<h1>Selección de datos en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#seleccion-de-datos-en-dataframe" title="Permalink to this headline">¶</a></h1>
+<p>Recordemos que un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> se comporta como un array bididimensional
+o como un diccionario de <code class="docutils literal notranslate"><span class="pre">Series</span></code> con un índice común.</p>
+<div class="section" id="como-un-diccionario">
+<h2>Como un diccionario<a class="headerlink" href="#como-un-diccionario" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mercurio&#39;</span><span class="p">,</span> <span class="s1">&#39;Venus&#39;</span><span class="p">,</span> <span class="s1">&#39;Tierra&#39;</span><span class="p">,</span> <span class="s1">&#39;Marte&#39;</span><span class="p">,</span> <span class="s1">&#39;Júpiter&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturno&#39;</span><span class="p">,</span> <span class="s1">&#39;Urano&#39;</span><span class="p">,</span> <span class="s1">&#39;Neptuno&#39;</span><span class="p">]</span>
+<span class="n">semieje</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.39</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.52</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.54</span><span class="p">,</span> <span class="mf">19.19</span><span class="p">,</span> <span class="mf">30.06</span><span class="p">]</span>
+<span class="n">nlunas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+
+<span class="n">dis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">semieje</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">nombre</span><span class="p">)</span>
+<span class="n">nmoon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nlunas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">nombre</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">dis</span><span class="p">,</span> <span class="s1">&#39;#moon&#39;</span><span class="p">:</span><span class="n">nmoon</span><span class="p">})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mercurio</th>
+      <td>0.39</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Venus</th>
+      <td>0.72</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>9.54</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>19.19</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>30.06</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos acceder a las columnas (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) utilizando <code class="docutils literal notranslate"><span class="pre">[]</span></code> como en
+un diccionario y de la misma manera podemos añadir columnas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Periodo sidéreo (en años), vía tercera ley de Kepler</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mercurio</th>
+      <td>0.39</td>
+      <td>0</td>
+      <td>0.243555</td>
+    </tr>
+    <tr>
+      <th>Venus</th>
+      <td>0.72</td>
+      <td>0</td>
+      <td>0.610940</td>
+    </tr>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>2</td>
+      <td>1.873982</td>
+    </tr>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>9.54</td>
+      <td>82</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>19.19</td>
+      <td>27</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>30.06</td>
+      <td>14</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="como-un-array">
+<h2>Como un array<a class="headerlink" href="#como-un-array" title="Permalink to this headline">¶</a></h2>
+<p>Podemos acceder al array de datos internos usando <code class="docutils literal notranslate"><span class="pre">values</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  0.39      ,   0.        ,   0.24355492],
+       [  0.72      ,   0.        ,   0.61094026],
+       [  1.        ,   1.        ,   1.        ],
+       [  1.52      ,   2.        ,   1.87398186],
+       [  5.2       ,  79.        ,  11.85782442],
+       [  9.54      ,  82.        ,  29.46609346],
+       [ 19.19      ,  27.        ,  84.06446668],
+       [ 30.06      ,  14.        , 164.80996395]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y hay casos en los que nos gustaría operar el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como
+si fuera un array, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mercurio</th>
+      <th>Venus</th>
+      <th>Tierra</th>
+      <th>Marte</th>
+      <th>Júpiter</th>
+      <th>Saturno</th>
+      <th>Urano</th>
+      <th>Neptuno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>0.390000</td>
+      <td>0.72000</td>
+      <td>1.0</td>
+      <td>1.520000</td>
+      <td>5.200000</td>
+      <td>9.540000</td>
+      <td>19.190000</td>
+      <td>30.060000</td>
+    </tr>
+    <tr>
+      <th>#moon</th>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>1.0</td>
+      <td>2.000000</td>
+      <td>79.000000</td>
+      <td>82.000000</td>
+      <td>27.000000</td>
+      <td>14.000000</td>
+    </tr>
+    <tr>
+      <th>P</th>
+      <td>0.243555</td>
+      <td>0.61094</td>
+      <td>1.0</td>
+      <td>1.873982</td>
+      <td>11.857824</td>
+      <td>29.466093</td>
+      <td>84.064467</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora bien, igual que sucedía en <code class="docutils literal notranslate"><span class="pre">Series</span></code>, tenemos el operador <code class="docutils literal notranslate"><span class="pre">[]</span></code>
+para acceder a los elementos. Y mientras que un solo índice
+en un array accede a las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.39      , 0.        , 0.24355492])
+</pre></div>
+</div>
+</div>
+</div>
+<p>un solo índice en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> accede a las columnas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;#moon&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mercurio     0
+Venus        0
+Tierra       1
+Marte        2
+Júpiter     79
+Saturno     82
+Urano       27
+Neptuno     14
+Name: #moon, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas ofrece de nuevo los atributos de índice que aparecían en <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<p>Utilizando <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, podemos utilizar los índices como si tuviéramos un
+<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24355492193753753
+</pre></div>
+</div>
+</div>
+</div>
+<p>y también:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mercurio</th>
+      <td>0.39</td>
+      <td>0.243555</td>
+    </tr>
+    <tr>
+      <th>Venus</th>
+      <td>0.72</td>
+      <td>0.610940</td>
+    </tr>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>1.873982</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>o por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Júpiter</th>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>82</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>27</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>14</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Utilizando <code class="docutils literal notranslate"><span class="pre">loc</span></code>, utilizamos los índices explícitos: <code class="docutils literal notranslate"><span class="pre">index</span></code> para las filas
+y <code class="docutils literal notranslate"><span class="pre">columns</span></code> para las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Mercurio&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24355492193753753
+</pre></div>
+</div>
+</div>
+</div>
+<p>y también:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Mercurio&#39;</span><span class="p">:</span><span class="s1">&#39;Marte&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mercurio</th>
+      <td>0.39</td>
+      <td>0.243555</td>
+    </tr>
+    <tr>
+      <th>Venus</th>
+      <td>0.72</td>
+      <td>0.610940</td>
+    </tr>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>1.873982</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>o por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Júpiter&#39;</span><span class="p">:,</span> <span class="s1">&#39;#moon&#39;</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Júpiter</th>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>82</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>27</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>14</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para ambos atributos, podemos utilizar los mecanismo que vimos en <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p>
+<p>Por ejemplo, con una máscara:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>9.54</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>19.19</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>30.06</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Recordemos, finalmente, que todas estas operaciones también se
+puede usar en asignaciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">data2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mercurio</th>
+      <td>0.39</td>
+      <td>0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Venus</th>
+      <td>0.72</td>
+      <td>0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>2</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>9.54</td>
+      <td>82</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>19.19</td>
+      <td>27</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>30.06</td>
+      <td>14</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="convenciones-sobre-el-uso-de">
+<h2>Convenciones sobre el uso de <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#convenciones-sobre-el-uso-de" title="Permalink to this headline">¶</a></h2>
+<p>Veamos ahora los últimos detalles que debemos conocer si
+utilizamos directamente <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>Hemos visto que si pasamos un solo índice a <code class="docutils literal notranslate"><span class="pre">[]</span></code> accedemos
+a las columnas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mercurio     0.39
+Venus        0.72
+Tierra       1.00
+Marte        1.52
+Júpiter      5.20
+Saturno      9.54
+Urano       19.19
+Neptuno     30.06
+Name: a, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero si pasamos una sección <strong>con <code class="docutils literal notranslate"><span class="pre">:</span></code> accedemos a las filas</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¡No funciona!</span>
+<span class="c1"># data[&#39;a&#39;:&#39;P&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¡Funciona!</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Tierra&#39;</span><span class="p">:</span><span class="s1">&#39;Júpiter&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>2</td>
+      <td>1.873982</td>
+    </tr>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Y también podemos pasar los índices de las columnas (estilo array,
+el último no incluído).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tierra</th>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Marte</th>
+      <td>1.52</td>
+      <td>2</td>
+      <td>1.873982</td>
+    </tr>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>De la misma manera, las máscaras booleanas se aplican por columnas, no
+por filas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>#moon</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Júpiter</th>
+      <td>5.20</td>
+      <td>79</td>
+      <td>11.857824</td>
+    </tr>
+    <tr>
+      <th>Saturno</th>
+      <td>9.54</td>
+      <td>82</td>
+      <td>29.466093</td>
+    </tr>
+    <tr>
+      <th>Urano</th>
+      <td>19.19</td>
+      <td>27</td>
+      <td>84.064467</td>
+    </tr>
+    <tr>
+      <th>Neptuno</th>
+      <td>30.06</td>
+      <td>14</td>
+      <td>164.809964</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sergiopasra/taller-python-tools",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./cap3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Pandas</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Sergio Pascual<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
