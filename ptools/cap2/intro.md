@@ -18,7 +18,7 @@ densos de datos. Los objetos `ndarray` de Numpy se comportan en
 ciertos aspectos como listas de Python, pero son mucho más 
 eficientes cuando se accede o se opera sobre ellos.
 
-La mayor parte de los pquetes científicos utilizan numpy o al menos admiten
+La mayor parte de los paquetes científicos utilizan numpy o al menos admiten
 conversión a su tipo de datos.
 
 Los ejemplos de este taller son compatibles con numpy versión 1.11 o superior.
