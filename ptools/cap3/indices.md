@@ -136,7 +136,7 @@ data.loc[1:3]
 ```
 
 Existe un tercer atributo, `ix`, pero ha sido marcado para eliminación
-a partir de pandas 0.20.1 y se prefiera utilizar `iloc` y `loc`.
+a partir de pandas 0.20.1 y se prefiere utilizar `iloc` y `loc`.
 
 # Selección de datos en `DataFrame`
 Recordemos que un `DataFrame` se comporta como un array bididimensional

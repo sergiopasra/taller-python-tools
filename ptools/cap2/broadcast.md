@@ -74,7 +74,7 @@ a + c
 resultado (2d) 3 x 3
 </pre>
 
-Empezando por la derecha, la dimensión 3 es compatible. La sigiente 
+Empezando por la derecha, la dimensión 3 es compatible. La siguiente 
 es 3 para `c` y no existe para `a`. Así que en esa dimensión `a` adquiere una
 dimensión 1 (1x3) y luego se replica (por filas).
 

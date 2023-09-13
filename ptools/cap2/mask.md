@@ -63,7 +63,7 @@ print('Desaparece el eje 0, por columnas', np.count_nonzero(x < 5, axis=0))
 print('Desaparece el eje 1, por filas', np.count_nonzero(x < 5, axis=1))
 ```
 
-Podemos también encontrar el valor lógico comninado de un array booleano.
+Podemos también encontrar el valor lógico combinado de un array booleano
 con las funciones `np.any` y `np.all`. `any` devuelve verdadero si hay
 algun valor verdadero, mientras que `all` devuelve falso si hay algún
 valor falso. Son el equivalente de reducir los arrays 

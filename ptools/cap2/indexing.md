@@ -81,7 +81,7 @@ x2[rows[:, np.newaxis], cols]
 ```
 En este caso, el resultado es 3x3.
 
-Finalmente, todos los métodos de acceso a arrays que hemos visto pueden comninarse,
+Finalmente, todos los métodos de acceso a arrays que hemos visto pueden combinarse,
 usando una máscara en un eje e índices numéricos o avanzados en otro. Por ejemplo
 
 ```{code-cell} ipython3
@@ -101,7 +101,7 @@ x2[rows[:, np.newaxis], cols] = -1
 x2
 ```
 
-Hay que tener cuidado, por que tener índices repetidos puede conducir a resultados
+Hay que tener cuidado, porque tener índices repetidos puede conducir a resultados
 contraintuitivos. Por ejemplo
 
 

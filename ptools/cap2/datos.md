@@ -183,7 +183,7 @@ arr2
 ```
 
 Existen dos funciones muy utilizadas para generar arrays como secuencias: 
-`arange` y `linspace'
+`arange` y `linspace`
 
 ```{code-cell} ipython3
 # Similar a range, pero creando un array
@@ -217,9 +217,9 @@ Se puede consultar la lista completa de `dtype` en la
 Podemos mencionar los tipos enteros, con y sin signo y de diferente 
 tamaño (uint32, int64), coma flotante (float32, float64), complejos y booleanos (bool).
 
-Los valores `dtype` pueden especificar datos más complejos, por ejemple
+Los valores `dtype` pueden especificar datos más complejos, por ejemplo
 el valor de `endianness` de los tipos.
 
-Finalemnte, numpy también soporta los tipos de datos compuestos, que se utilizan
+Finalmente, numpy también soporta los tipos de datos compuestos, que se utilizan
 en los arrays estructurados.
 
