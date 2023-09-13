@@ -55,13 +55,13 @@ Podemos utilizar el comando de celda `%timeit` para medir
 la velocidad de ejecución en un array más grande. Por ejemplo:
 
 ```{code-cell} ipython3
-val2 = np.random.randint(1, 100, size=1000000)
+val2 = np.random.randint(1, 100, size=10000)
 %timeit calcular_inv_cuad(val2)
 ```
 
 En este caso, vemos que se tarda en promedio unos segundos
-en realizar esta operación sencilla sobre un millón de enteros.
-Pensando que esto no es más que una imagen de 1000x1000, parece
+en realizar esta operación sencilla sobre diez mil enteros.
+Pensando que esto no es más que una imagen de 100x100, parece
 extremadamente lento. 
 
 Si analizáramos las llamadas internas en C, veríamos

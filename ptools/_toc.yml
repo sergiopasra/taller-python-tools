@@ -1,10 +1,10 @@
-- file: intro
-
-- part: Instalación
+format: jb-book
+root: intro
+parts:
+- caption: "Instalaci\xF3n"
   chapters:
   - file: install
-
-- part: Python y Jupyter
+- caption: Python y Jupyter
   chapters:
   - file: cap1/python
   - file: cap1/sec2
@@ -13,12 +13,9 @@
   - file: cap1/Fibonacci
   - file: cap1/magics
   - file: cap1/magicmd
-#  - file: cap1/widgets
   - file: cap1/cfibonacci
-#  - file: cap1/jconvert
   - file: cap1/jremote
-
-- part: Numpy
+- caption: Numpy
   chapters:
   - file: cap2/intro
   - file: cap2/datos
@@ -29,8 +26,7 @@
   - file: cap2/mask
   - file: cap2/indexing
   - file: cap2/structured
-
-- part: Pandas
+- caption: Pandas
   chapters:
   - file: cap3/intro
   - file: cap3/indices
