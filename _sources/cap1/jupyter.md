@@ -13,7 +13,7 @@ separado y potencialemente en cualquier orden.
 El contenido de las celdas, así como los resultados, se almacenan en ficheros
 con extensión `.ipynb`, denominados **cuadernos**. Internamente, los cuadernos
 son ficheros [JSON](https://en.wikipedia.org/wiki/JSON) y utilizan *base64*
-para almacenar resultdos como imágenes o videos. (Los cuadernos incrementan
+para almacenar resultados como imágenes o videos. (Los cuadernos incrementan
 su tamaño al ejecutarlos).
 
 El *backend* o kernel se encarga de realizar los cálculos. Diferentes

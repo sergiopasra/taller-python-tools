@@ -13,13 +13,13 @@ kernelspec:
 
 # Estructura de un `ndarray`
 
-Es interesante conocer a grandes rasgos cómo se orgniza la estructura interna de un objeto ndarray
+Es interesante conocer a grandes rasgos cómo se organiza la estructura interna de un objeto ndarray
 
 El objeto contiene básicamente un buffer con datos en la memoria, más la información
-sobre cómo interpretar el contenido de la memoria más la inforamción sore cómo moverse dentro de la 
+sobre cómo interpretar el contenido de la memoria más la información sobre cómo moverse dentro de la 
 memoria asignada.
 
-A parte de estos atributos podemos acceder desde Python (aunque rara vez es necesario)
+Aparte de estos atributos, podemos acceder desde Python (aunque rara vez es necesario)
 
 ```{code-cell} ipython3
 import numpy as np

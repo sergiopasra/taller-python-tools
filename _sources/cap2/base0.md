@@ -183,7 +183,7 @@ print(x2[:, 3:4].shape)
 print(x2[:, 3])
 print(x2[:, 3].shape)
 ```
-El resultado de la operación depende de si aportamos un valor o un** rango**.
+El resultado de la operación depende de si aportamos un valor o un **rango**.
 
 Las expresiones `a:b:c` son equivalentes a `slice(a, b, c)`, así podemos
 hacer:

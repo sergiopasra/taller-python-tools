@@ -108,10 +108,10 @@ En general, los operadores aritméticos pueden llamerse de dos maneras:
 la obvia (+ para la suma, * para el producto) y mediante una función.
 Por ejemplo, para sumar dos arrays, numpy llama a la función `np.add`.
 
-De manera que `a + b` es equivalente a `np.add(a, b), siempre
+De manera que `a + b` es equivalente a `np.add(a, b)`, siempre
 que `a` o `b` sean un array o un tipo numérico de Python.
 
-A parte de las funciones en numpy, el paquete `scipy` también proporciona
+Aparte de las funciones en numpy, el paquete `scipy` también proporciona
 funciones especiales como ufuncs en el módulo `scipy.special`. 
 
 Por ejemplo, valores de la función de Bessel de primera especie y orden cero.
@@ -175,7 +175,7 @@ Para el caso de la suma y el producto, ya existen funciones específicas
 para reducción y acumulación: `np.sum`, `np.prod`, `np.cumsum`, `np.cumprod`
 
 Hay que tener cuidado y asegurarse de que el tipo del array es capaz
-de contener los resultados de la acumulación. Sino es así hay que
+de contener los resultados de la acumulación. Si no es así, hay que
 añadir un argumento `dtype` para definir el tipo de salida.  
 
 ```{code-cell} ipython3

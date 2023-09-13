@@ -9,7 +9,7 @@ Veremos ahora varios procedimientos.
 
 Este método permite acceder a un grupo de cuadernos personales a un solo usuario. No permite a múltiples usuarios acceder al mismo cuaderno.
 
-[Notebook Server](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)
+[Notebook Server](https://jupyter-server.readthedocs.io/en/stable/operators/public-server.html)
 
 ## nbviewer
 

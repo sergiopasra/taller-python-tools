@@ -415,11 +415,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="estructura-de-un-ndarray">
 <h1>Estructura de un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code><a class="headerlink" href="#estructura-de-un-ndarray" title="Permalink to this heading">#</a></h1>
-<p>Es interesante conocer a grandes rasgos cómo se orgniza la estructura interna de un objeto ndarray</p>
+<p>Es interesante conocer a grandes rasgos cómo se organiza la estructura interna de un objeto ndarray</p>
 <p>El objeto contiene básicamente un buffer con datos en la memoria, más la información
-sobre cómo interpretar el contenido de la memoria más la inforamción sore cómo moverse dentro de la
+sobre cómo interpretar el contenido de la memoria más la información sobre cómo moverse dentro de la
 memoria asignada.</p>
-<p>A parte de estos atributos podemos acceder desde Python (aunque rara vez es necesario)</p>
+<p>Aparte de estos atributos, podemos acceder desde Python (aunque rara vez es necesario)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -430,7 +430,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7fbacc782740&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;memory at 0x7f835911a740&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x03\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff&#39;
@@ -446,7 +446,7 @@ memoria asignada.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94706753988864, False),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: (94372764989088, False),
  &#39;strides&#39;: None,
  &#39;descr&#39;: [(&#39;&#39;, &#39;&lt;i8&#39;)],
  &#39;typestr&#39;: &#39;&lt;i8&#39;,
@@ -864,7 +864,7 @@ By Sergio Pascual
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2020-2023.
       <br/>
     
   </p>

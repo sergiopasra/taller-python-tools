@@ -17,7 +17,7 @@ Sin embargo, los datos tabulares a veces requieren datos con tipos heterogéneos
 
 Para este tipo de datos, numpy ofrece arrays con un tipo de datos complejo: arrays estructurados y `recarray`.
 
-Este tipo de datos funcoina bien en escenarios de uso sencillos. Cuando las operaciones sobre los 
+Este tipo de datos funciona bien en escenarios de uso sencillos. Cuando las operaciones sobre los 
 datos se vuelven complejas, resulta más conveniente utilizar Pandas y su `DataFrame`.
 
 
@@ -67,7 +67,7 @@ data['nlunas'] = nlunas
 print(data)
 ```
 
-De esta manera, todos los datos están almacendos en un solo objeto en memoria.
+De esta manera, todos los datos están almacenados en un solo objeto en memoria.
 Además, podemos acceder a los registros por un índice o a las diferentes columnas
 por nombre:
 

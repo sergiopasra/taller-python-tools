@@ -452,7 +452,7 @@ realizan muchas operaciones en un array grande de datos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.04      , 0.015625  , 0.01234568, 1.        , 0.01234568])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11111111, 0.02777778, 1.        , 0.0625    , 0.02040816])
 </pre></div>
 </div>
 </div>
@@ -468,7 +468,7 @@ la velocidad de ejecución en un array más grande. Por ejemplo:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.1 ms ± 90.8 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.7 ms ± 160 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -499,8 +499,8 @@ directamente sobre los arrays en lugar de sus elementos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.04       0.015625   0.01234568 1.         0.01234568]
-[0.04       0.015625   0.01234568 1.         0.01234568]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.11111111 0.02777778 1.         0.0625     0.02040816]
+[0.11111111 0.02777778 1.         0.0625     0.02040816]
 </pre></div>
 </div>
 </div>
@@ -513,7 +513,7 @@ directamente sobre los arrays en lugar de sus elementos.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.73 µs ± 8.83 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8 µs ± 57.7 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -528,8 +528,9 @@ en el módulo <code class="docutils literal notranslate"><span class="pre">math<
 <p>En general, los operadores aritméticos pueden llamerse de dos maneras:
 la obvia (+ para la suma, * para el producto) y mediante una función.
 Por ejemplo, para sumar dos arrays, numpy llama a la función <code class="docutils literal notranslate"><span class="pre">np.add</span></code>.</p>
-<p>De manera que <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">np.add(a,</span> <span class="pre">b),</span> <span class="pre">siempre</span> <span class="pre">que</span> </code>a<code class="docutils literal notranslate"><span class="pre">o</span></code>b` sean un array o un tipo numérico de Python.</p>
-<p>A parte de las funciones en numpy, el paquete <code class="docutils literal notranslate"><span class="pre">scipy</span></code> también proporciona
+<p>De manera que <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> es equivalente a <code class="docutils literal notranslate"><span class="pre">np.add(a,</span> <span class="pre">b)</span></code>, siempre
+que <code class="docutils literal notranslate"><span class="pre">a</span></code> o <code class="docutils literal notranslate"><span class="pre">b</span></code> sean un array o un tipo numérico de Python.</p>
+<p>Aparte de las funciones en numpy, el paquete <code class="docutils literal notranslate"><span class="pre">scipy</span></code> también proporciona
 funciones especiales como ufuncs en el módulo <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code>.</p>
 <p>Por ejemplo, valores de la función de Bessel de primera especie y orden cero.</p>
 <div class="cell docutils container">
@@ -631,7 +632,7 @@ que el método <code class="docutils literal notranslate"><span class="pre">accu
 <p>Para el caso de la suma y el producto, ya existen funciones específicas
 para reducción y acumulación: <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.prod</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.cumprod</span></code></p>
 <p>Hay que tener cuidado y asegurarse de que el tipo del array es capaz
-de contener los resultados de la acumulación. Sino es así hay que
+de contener los resultados de la acumulación. Si no es así, hay que
 añadir un argumento <code class="docutils literal notranslate"><span class="pre">dtype</span></code> para definir el tipo de salida.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -780,7 +781,7 @@ By Sergio Pascual
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2020-2023.
       <br/>
     
   </p>
