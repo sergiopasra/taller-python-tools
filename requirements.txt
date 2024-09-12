@@ -5,6 +5,6 @@ Cython
 scipy
 pandas
 astropy
-rpy2
+#rpy2
 #
 jupyter-book
