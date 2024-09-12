@@ -123,28 +123,7 @@ print(repr(y))
 ```
 
 En una operación de suma se está usando internamente ufuncs.
-Se realiza conversión de tipos basado en el tipo de los datos.
-
-
-```{code-cell} ipython3
-# 1 es int8
-print(y + 1)
-# pero 200 no
-print('y+200', repr(y + 200))
-# esta operación se pasa a int16
-# cuidado, la conversión no evita el overflow
-z = y + 100
-print(f"y.datype {y.dtype}")
-print(f"z.dtype {z.dtype}")
-print(f"z={z!r}")
-print('z+z=', z + z)
-```
-En asignaciones se convierte el dato, no el array
-```{code-cell} ipython3
-print(y)
-y[0] = 22.5
-print(y)
-```
+Se realiza conversión de tipos basado en el tipo del array.
 
 Para ver las reglas en detalle, de nuevo podemos acudir a la 
 [documentación de numpy](https://numpy.org/doc/stable/reference/ufuncs.html#casting-rules)
