@@ -28,7 +28,7 @@ print(x.data)
 bytes(x.data)
 ```
 
-Podemos ver una representación en Python de la estrcutura interna accediendo a `__array_interface__`
+Podemos ver una representación en Python de la estructura interna accediendo a `__array_interface__`
 
 
 ```{code-cell} ipython3
