@@ -80,6 +80,7 @@ E instalamos con:
 
 ```
 (taller) $ conda install -c conda-forge notebook pandas astropy numpy matplotlib
+```
 
 ## Licencias
 

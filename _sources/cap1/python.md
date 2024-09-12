@@ -65,7 +65,7 @@ Python puede ejecutar comandos escritos en un fichero (un *programa* de Python) 
 
 Python viene instalado en la mayor parte de las distribuciones Linux y en Mac. También puede instalarse en Windows.
 
-**Ojo:** Es importante asegurarnos de que tenemos una versión moderna de Python. Debería ser por lo menos 3.6.
+**Ojo:** Es importante asegurarnos de que tenemos una versión moderna de Python. Debería ser por lo menos 3.9.
 
 ```
 Python 3.9.1 (default, Jan 20 2021, 00:00:00)
@@ -108,8 +108,9 @@ Existen además una gran cantidad de extensiones que añaden funcionalidades de 
  * pandas: estructuras de datos y análisis
  * scikit-learn: machine learning
  * scikit-image: visión artificial
- * pymc3: programación probabilística
+ * pymc: programación probabilística
  * statsmodels: modelos estadísticos
+ * TensorFlow: aprendizaje automático
  * y muchos más...
 
 
